@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beast Devil Carousel Website</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+       @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap");
+
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
+      }
+
+      body {
+        overflow: hidden;
+      }
+
+      .carousel {
+        height: 100vh;
+      }
+
+      .item .img-box {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        transform: translateY(100%);
+        transition: 0.4s ease;
+        transition-delay: 0.6s;
+        overflow: hidden;
+      }
+
+      .item .img-box::before {
+        content: "";
+        position: absolute;
+        right: 30%;
+        width: 500px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        filter: blur(200px);
+      }
+
+      .item.active .img-box,
+      .item.previously-active .img-box {
+        transition-delay: 0.2s;
+      }
+
+      .item.active .img-box {
+        transform: translateY(0);
+      }
+
+      .item.back-active .img-box {
+        transition: none;
+      }
+
+      .item:nth-child(1) .img-box {
+        background: #a9350a;
+      }
+
+      .item:nth-child(2) .img-box {
+        background: #201f1e;
+      }
+
+      .item:nth-child(3) .img-box {
+        background: #7e0806;
+      }
+
+      .item:nth-child(4) .img-box {
+        background: #5d2917;
+      }
+
+      .img-box img {
+        position: absolute;
+        bottom: 0;
+        width: 54%;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+        transform: translateX(20%);
+      }
+
+      .item:nth-child(2) .img-box img {
+        transform: translateX(22%);
+      }
+
+      .item .info-box {
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 450px;
+        height: 280px;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .item.active .info-box {
+        z-index: 2;
+      }
+
+      .info-box .info-slider {
+        transition: 0.7s cubic-bezier(0.68, -0.55, 0.1, 1);
+      }
+
+      .info-slider .info-item {
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        transform: translateY(calc(var(--i) * 100%));
+      }
+
+      .info-item h2 {
+        font-size: 40px;
+        line-height: 1;
+      }
+
+      .info-item p {
+        font-size: 16px;
+        margin: 15px 0 20px;
+        text-align: justify;
+      }
+
+      .info-item .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 180px;
+        height: 47px;
+        background: transparent;
+        border: 2px solid #fff;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .thumb {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        list-style: none;
+        z-index: 100;
+      }
+
+      .thumb li {
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        margin: 25px 0;
+        overflow: hidden;
+      }
+
+      .thumb li.selected {
+        border: 3px solid #fff;
+      }
+
+      .thumb li.disabled {
+        pointer-events: none;
+      }
+
+      .thumb li img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <div class="item active">
+        <div class="img-box">
+          <img src="../assets/img/bg1.jpeg" alt="Tiger Devil" />
+        </div>
+
+        <div class="info-box">
+          <div class="info-slider">
+            <div class="info-item" style="--i: 0">
+              <h2>Tiger Devil</h2>
+              <p>
+                Tiger Devil is a legendary creature that arouses both
+                fascination and fear. Known for its imposing appearance and
+                unpredictable behavior, this beast is often described as a tiger
+                with demonic features.
+              </p>
+              <a href="#" class="btn">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="img-box">
+          <img
+            src="../assets/img/bg2.jpeg" alt="Dragon Devil"
+          />
+        </div>
+
+        <div class="info-box">
+          <div class="info-slider">
+            <div class="info-item" style="--i: 1">
+              <h2>Dragon Devil</h2>
+              <p>
+                Dragon Devil is a legendary creature that combines the majesty
+                of a dragon with the ferocity of a demon. Known for his imposing
+                appearance and supernatural powers, he is often described in
+                myths and legends as a guardian of ancient treasures or a being
+                of destruction.
+              </p>
+              <a href="#" class="btn">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="img-box">
+          <img src="../assets/img/bg3.jpegalt="Fox Devil" />
+        </div>
+
+        <div class="info-box">
+          <div class="info-slider">
+            <div class="info-item" style="--i: 2">
+              <h2>Fox Devil</h2>
+              <p>
+                Crimson Fox Devil is a legendary creature that combines the
+                cunning of a fox with the ferocity of a demon. Known for his
+                bright red fur and piercing eyes, he is often described in myths
+                and legends as a keeper of ancient secrets or a being of great
+                power.
+              </p>
+              <a href="#" class="btn">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="img-box">
+          <img src="../assets/img/bg4.jpegalt="Lion Devil" />
+        </div>
+
+        <div class="info-box">
+          <div class="info-slider">
+            <div class="info-item" style="--i: 3">
+              <h2>Lion Devil</h2>
+              <p>
+                Lion Devil is a legendary creature that combines the grandeur of
+                a lion with the ferocity of a demon. Known for his immense
+                strength and imposing presence, he is often depicted in myths
+                and legends as a fierce guardian or a being of destruction.
+              </p>
+              <a href="#" class="btn">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="thumb">
+        <li class="selected">
+          <img src="../assets/img/bg1.jpeg" />
+        </li>
+        <li><img src="../assets/img/bg2.jpeg" /></li>
+        <li><img src="../assets/img/bg3.jpeg" /></li>
+        <li><img src="../assets/img/bg4.jpeg" /></li>
+      </ul>
+    </div>
+
+    <script>
+      const thumbs = document.querySelectorAll(".thumb li");
+      const infoSlider = document.querySelectorAll(".info-slider");
+      const items = document.querySelectorAll(".item");
+
+      let index = 0;
+
+      thumbs.forEach((thumb, ind) => {
+        thumb.addEventListener("click", (event) => {
+          setTimeout(() => {
+            document
+              .querySelector(".thumb .selected")
+              .classList.remove("selected");
+            thumb.classList.add("selected");
+          }, 100);
+
+          thumbs.forEach((thum) => {
+            thum.classList.add("disabled");
+            setTimeout(() => {
+              thum.classList.remove("disabled");
+            }, 100);
+          });
+
+          let anySelected = false;
+          let current = event.target.parentElement.nextElementSibling;
+
+          while (current !== null && !anySelected) {
+            anySelected = anySelected || current.matches(".selected");
+            current = current.nextElementSibling;
+
+            if (anySelected) {
+              items[index].classList.add("previously-active");
+
+              setTimeout(() => {
+                document
+                  .querySelector(".item.previously-active")
+                  .classList.remove("previously-active");
+              }, 100);
+
+              index = ind;
+              items[index].classList.add("back-active");
+
+              setTimeout(() => {
+                document
+                  .querySelector(".item.back-active")
+                  .classList.remove("back-active");
+              }, 100);
+            }
+          }
+
+          index = ind;
+
+          infoSlider.forEach((slide) => {
+            slide.style.transform = `translateY(${index * -100}%)`;
+          });
+
+          document.querySelector(".item.active").classList.remove("active");
+          items[index].classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

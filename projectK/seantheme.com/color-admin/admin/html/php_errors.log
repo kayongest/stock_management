@@ -1,0 +1,2370 @@
+[12-Sep-2024 23:59:09 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => was
+    [item_category] => SOUND
+    [stock_location] => Rugando
+    [item_status] => Needs Repair
+    [serial_number] => as
+)
+
+[12-Sep-2024 23:59:09 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => computer-program-coding-screen.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php508.tmp
+            [error] => 0
+            [size] => 8225019
+        )
+
+)
+
+[13-Sep-2024 00:43:49 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => asdas
+    [item_category] => SOUND
+    [stock_location] => Rugando
+    [item_status] => Needs Repair
+    [serial_number] => asdas
+)
+
+[13-Sep-2024 00:43:49 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg2.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpE999.tmp
+            [error] => 0
+            [size] => 63380
+        )
+
+)
+
+[13-Sep-2024 00:46:27 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => sdfds
+    [item_category] => SOUND
+    [stock_location] => Rugando
+    [item_status] => Needs Repair
+    [serial_number] => sdfds
+)
+
+[13-Sep-2024 00:46:27 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => computer-program-coding-screen.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php521E.tmp
+            [error] => 0
+            [size] => 8225019
+        )
+
+)
+
+[13-Sep-2024 01:12:35 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => desc
+    [item_category] => SOUND
+    [stock_location] => Rugando
+    [serial_number] => 5238961
+    [item_status] => New
+)
+
+[13-Sep-2024 01:12:35 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg2.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php40D5.tmp
+            [error] => 0
+            [size] => 63380
+        )
+
+)
+
+[13-Sep-2024 01:33:04 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap
+    [item_description] => utap VC
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 18835UTAP
+    [item_status] => Working
+)
+
+[13-Sep-2024 01:33:04 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpFF9A.tmp
+            [error] => 0
+            [size] => 28694
+        )
+
+)
+
+[13-Sep-2024 01:36:44 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap2
+    [item_description] => desc1
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => utap11
+    [item_status] => Working
+)
+
+[13-Sep-2024 01:36:44 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => utap.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php5A8E.tmp
+            [error] => 0
+            [size] => 76119
+        )
+
+)
+
+[13-Sep-2024 01:51:05 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Lenovo 
+    [item_description] => Ideapad Gaming
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 5DC700
+    [item_status] => Working
+)
+
+[13-Sep-2024 01:51:05 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => VD.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php7E92.tmp
+            [error] => 0
+            [size] => 186264
+        )
+
+)
+
+[13-Sep-2024 01:56:54 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Bose S1
+    [item_description] => Sound equipment
+    [item_category] => SOUND
+    [stock_location] => KCC
+    [serial_number] => BS001
+    [item_status] => Working
+)
+
+[13-Sep-2024 01:56:54 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => Dsan-Cue-Light.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpD372.tmp
+            [error] => 0
+            [size] => 80617
+        )
+
+)
+
+[22-Sep-2024 11:25:30 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop
+    [item_description] => desc
+    [item_category] => VIDEO
+    [stock_location] => Masoro
+    [serial_number] => #767ASDWQER
+    [item_status] => Faulty
+)
+
+[22-Sep-2024 11:25:30 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg3.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php76A6.tmp
+            [error] => 0
+            [size] => 969464
+        )
+
+)
+
+[22-Sep-2024 11:26:31 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop
+    [item_description] => desc
+    [item_category] => VIDEO
+    [stock_location] => Masoro
+    [serial_number] => #767ASDWQER
+    [item_status] => Faulty
+)
+
+[22-Sep-2024 11:26:31 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg3.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php65CA.tmp
+            [error] => 0
+            [size] => 756425
+        )
+
+)
+
+[22-Sep-2024 13:36:21 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop
+    [item_description] => desc
+    [item_category] => VIDEO
+    [stock_location] => Masoro
+    [serial_number] => #767ASDWQER
+    [item_status] => Faulty
+)
+
+[22-Sep-2024 13:36:21 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php4188.tmp
+            [error] => 0
+            [size] => 28694
+        )
+
+)
+
+[22-Sep-2024 13:58:32 Europe/Berlin] PHP Warning:  require(phpqrcode/qrlib.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php on line 12
+[22-Sep-2024 13:58:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'phpqrcode/qrlib.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php:12
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php on line 12
+[22-Sep-2024 14:08:11 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => desc
+    [item_category] => SOUND
+    [stock_location] => BK Arena
+    [serial_number] => erwersd2323
+    [item_status] => Faulty
+)
+
+[22-Sep-2024 14:08:11 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg2.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php684E.tmp
+            [error] => 0
+            [size] => 356248
+        )
+
+)
+
+[23-Sep-2024 19:46:46 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI - HDMI MINI
+    [item_description] => desc
+    [item_category] => SOUND
+    [stock_location] => KCC
+    [serial_number] => werwer
+    [item_status] => New
+)
+
+[23-Sep-2024 19:46:46 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg1.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php5BB5.tmp
+            [error] => 0
+            [size] => 452186
+        )
+
+)
+
+[23-Sep-2024 20:47:52 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap2
+    [item_description] => 232
+    [item_category] => OTHER
+    [stock_location] => BK Arena
+    [serial_number] => wqerwer
+    [item_status] => New
+)
+
+[23-Sep-2024 20:47:52 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => app-store.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php4ACD.tmp
+            [error] => 0
+            [size] => 84361
+        )
+
+)
+
+[23-Sep-2024 23:48:10 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap5
+    [item_description] => desc_ItemType
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => descItemType5
+    [item_status] => Working
+)
+
+[23-Sep-2024 23:48:10 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => enter.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php6067.tmp
+            [error] => 0
+            [size] => 9913
+        )
+
+)
+
+[23-Sep-2024 23:52:08 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap5
+    [item_description] => desc
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => descItemType5
+    [item_status] => Working
+    [item_type] => New
+)
+
+[23-Sep-2024 23:52:08 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg5.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpFF78.tmp
+            [error] => 0
+            [size] => 19533
+        )
+
+)
+
+[23-Sep-2024 23:55:34 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap5
+    [item_description] => 213
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => descItemType7
+    [item_status] => Faulty
+    [item_type] => New
+)
+
+[23-Sep-2024 23:55:34 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg1.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php24B6.tmp
+            [error] => 0
+            [size] => 452186
+        )
+
+)
+
+[24-Sep-2024 11:02:19 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap7
+    [item_description] => desc
+    [item_category] => SOUND
+    [stock_location] => BK Arena
+    [serial_number] => 54345
+    [item_status] => New
+    [item_type] => New
+)
+
+[24-Sep-2024 11:02:19 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => like.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php9101.tmp
+            [error] => 0
+            [size] => 41455
+        )
+
+)
+
+[24-Sep-2024 11:46:22 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap8
+    [item_description] => desc8
+    [item_category] => VIDEO
+    [stock_location] => Masoro
+    [serial_number] => erft
+    [item_status] => Working
+    [item_type] => New
+)
+
+[24-Sep-2024 11:46:22 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpE72E.tmp
+            [error] => 0
+            [size] => 28694
+        )
+
+)
+
+[24-Sep-2024 13:11:06 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop Lenovo
+    [item_description] => Ideapad gaming
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => TP2323
+    [item_status] => Working
+    [item_type] => New
+)
+
+[24-Sep-2024 13:11:06 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg2.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php78EB.tmp
+            [error] => 0
+            [size] => 869154
+        )
+
+)
+
+[24-Sep-2024 19:16:51 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Sound Card
+    [item_description] => 2i2 Focusrite
+    [item_category] => SOUND
+    [stock_location] => KCC
+    [serial_number] => 2i2#2435
+    [item_status] => Working
+    [item_type] => New
+)
+
+[24-Sep-2024 19:16:51 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => camera.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php53B3.tmp
+            [error] => 0
+            [size] => 55344
+        )
+
+)
+
+[24-Sep-2024 19:32:14 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap
+    [item_description] => Video Converter
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => #3214
+    [item_status] => Working
+    [item_type] => New
+)
+
+[24-Sep-2024 19:32:14 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => blog-1.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php6842.tmp
+            [error] => 0
+            [size] => 71399
+        )
+
+)
+
+[24-Sep-2024 21:13:46 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => descDemo
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 3212345
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[24-Sep-2024 21:13:46 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => blog-3.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php5DB0.tmp
+            [error] => 0
+            [size] => 84765
+        )
+
+)
+
+[25-Sep-2024 12:32:57 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => desc
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => desc
+    [item_status] => Working
+    [item_type] => New
+)
+
+[25-Sep-2024 12:32:57 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => frontend-corporate-thumb.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpE7CE.tmp
+            [error] => 0
+            [size] => 29689
+        )
+
+)
+
+[25-Sep-2024 15:58:55 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Bosche Server
+    [item_description] => Interpretation Server
+    [item_category] => SIS
+    [stock_location] => KCC
+    [serial_number] => 8CN4030KB6
+    [item_status] => Working
+    [item_type] => New
+)
+
+[25-Sep-2024 15:58:55 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => hpServer.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php79EB.tmp
+            [error] => 0
+            [size] => 35608
+        )
+
+)
+
+[25-Sep-2024 16:58:49 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => UpDownCross
+    [item_description] => descQr
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => descQr12
+    [item_status] => Working
+    [item_type] => New
+)
+
+[25-Sep-2024 16:58:49 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => hpServer.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php51E7.tmp
+            [error] => 0
+            [size] => 35608
+        )
+
+)
+
+[25-Sep-2024 16:58:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php:95
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php on line 95
+[25-Sep-2024 18:06:26 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => UpDownCross
+    [item_description] => sdfds
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => descQr1231
+    [item_status] => Repaired
+    [item_type] => New
+)
+
+[25-Sep-2024 18:06:26 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => login.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php3857.tmp
+            [error] => 0
+            [size] => 8741
+        )
+
+)
+
+[25-Sep-2024 18:21:56 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => UpDownCross
+    [item_description] => descWithQrCode
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 5238961
+    [item_status] => Working
+    [item_type] => New
+)
+
+[25-Sep-2024 18:21:56 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => hpServer.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php6948.tmp
+            [error] => 0
+            [size] => 35608
+        )
+
+)
+
+[25-Sep-2024 18:26:44 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap1
+    [item_description] => descUtap
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => uTap_89278
+    [item_status] => Working
+    [item_type] => New
+)
+
+[25-Sep-2024 18:26:44 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => wired-lineal-1335-qr-code.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\phpCD10.tmp
+            [error] => 0
+            [size] => 14734
+        )
+
+)
+
+[26-Sep-2024 09:34:22 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Monitor
+    [item_description] => HP 24Inch
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 3CM1110M9H
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[26-Sep-2024 09:34:22 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => Monitor_24Inch.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpC17E.tmp
+            [error] => 0
+            [size] => 90953
+        )
+
+)
+
+[27-Sep-2024 15:38:23 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop
+    [item_description] => Lenovo Ideapad Gaming
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => Id34#70
+    [item_status] => Working
+    [item_type] => New
+)
+
+[27-Sep-2024 15:38:23 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN 40L.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php6293.tmp
+            [error] => 0
+            [size] => 69583
+        )
+
+)
+
+[29-Sep-2024 10:36:28 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Camera
+    [item_description] => SONY
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => S#SONY542
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[29-Sep-2024 10:36:28 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN LAPTOP.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpF676.tmp
+            [error] => 0
+            [size] => 243000
+        )
+
+)
+
+[30-Sep-2024 21:47:00 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Clicker
+    [item_description] => DSAN
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => CLK#12
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[30-Sep-2024 21:47:00 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php31B6.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[30-Sep-2024 21:57:23 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Desktop
+    [item_description] => OMENL 
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => OMN#12
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[30-Sep-2024 21:57:23 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN 40L.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpB36E.tmp
+            [error] => 0
+            [size] => 69583
+        )
+
+)
+
+[30-Sep-2024 22:05:21 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop
+    [item_description] => OME 20LP
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 5CD1883
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[30-Sep-2024 22:05:21 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN LAPTOP.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php93.tmp
+            [error] => 0
+            [size] => 243000
+        )
+
+)
+
+[01-Oct-2024 00:19:45 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Desktop
+    [item_description] => OMEN 40L
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => DKTP#01
+    [item_status] => Working
+    [item_type] => New
+)
+
+[01-Oct-2024 00:19:45 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN 40L.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpA42.tmp
+            [error] => 0
+            [size] => 69583
+        )
+
+)
+
+[01-Oct-2024 00:47:54 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => SIgnal Converter
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => SDI#C01
+    [item_status] => Working
+    [item_type] => New
+)
+
+[01-Oct-2024 00:47:54 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpCFBC.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[01-Oct-2024 01:06:57 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap
+    [item_description] => VC
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => uTp#12
+    [item_status] => Working
+    [item_type] => New
+)
+
+[01-Oct-2024 01:06:57 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => DC.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php4151.tmp
+            [error] => 0
+            [size] => 70620
+        )
+
+)
+
+[01-Oct-2024 09:21:03 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Microphone
+    [item_description] => Wireless Long Range - Seinheisser
+    [item_category] => SOUND
+    [stock_location] => KCC
+    [serial_number] => SNHWM#001
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[01-Oct-2024 09:21:03 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => Seinheisser Wireless Microphone.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php9D7E.tmp
+            [error] => 0
+            [size] => 106633
+        )
+
+)
+
+[01-Oct-2024 09:27:49 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => UpDownCross
+    [item_description] => Cross-convert between any SD and HD video format
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => UpDwnCr#001
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[01-Oct-2024 09:27:49 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => UpDownCross_Converter.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpCEC3.tmp
+            [error] => 0
+            [size] => 26868
+        )
+
+)
+
+[01-Oct-2024 19:27:10 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => sdfsd
+    [item_description] => sdfsd
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 4546
+    [item_status] => Working
+    [item_type] => New
+)
+
+[01-Oct-2024 19:27:10 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => DC.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php88E1.tmp
+            [error] => 0
+            [size] => 70620
+        )
+
+)
+
+[01-Oct-2024 19:28:50 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap
+    [item_description] => Video Converter
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => utap#001
+    [item_status] => Working
+    [item_type] => New
+)
+
+[01-Oct-2024 19:28:50 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpF15.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[01-Oct-2024 19:38:14 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop
+    [item_description] => OMEN 40L
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => OMN#40L
+    [item_status] => Working
+    [item_type] => New
+)
+
+[01-Oct-2024 19:38:14 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN 40L.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpAC2A.tmp
+            [error] => 0
+            [size] => 69583
+        )
+
+)
+
+[01-Oct-2024 20:23:45 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Clicker
+    [item_description] => DSAN
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => #CLKZr001
+    [item_status] => Working
+    [item_type] => New
+)
+
+[01-Oct-2024 20:23:45 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php5748.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[03-Oct-2024 21:42:01 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Sound Card
+    [item_description] => 2i2 Focusrite
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => FS#001
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[03-Oct-2024 21:42:01 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => Monitor_24Inch.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpDA10.tmp
+            [error] => 0
+            [size] => 90953
+        )
+
+)
+
+[04-Oct-2024 18:46:37 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Tester
+    [item_description] => Signal Tester
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => TS#555
+    [item_status] => Working
+    [item_type] => New
+)
+
+[04-Oct-2024 18:46:37 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => Seinheisser Wireless Microphone.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpA0FF.tmp
+            [error] => 0
+            [size] => 106633
+        )
+
+)
+
+[05-Oct-2024 21:23:26 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Mecano
+    [item_description] => Structure
+    [item_category] => VIDEO
+    [stock_location] => Masoro
+    [serial_number] => MCN#100
+    [item_status] => Needs Repair
+    [item_type] => New
+)
+
+[05-Oct-2024 21:23:26 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php8F78.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[06-Oct-2024 13:22:51 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Mouse Pad
+    [item_description] => Peripherals
+    [item_category] => IT
+    [stock_location] => BK Arena
+    [serial_number] => MS#5450
+    [item_status] => Leased
+    [item_type] => New
+)
+
+[06-Oct-2024 13:22:51 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpEB7C.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[08-Oct-2024 11:31:00 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI Converter
+    [item_description] => BlackMagic - Mini Converter / UpDownCross HD
+    [item_category] => VIDEO
+    [stock_location] => BK Arena
+    [serial_number] => 10422332
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[08-Oct-2024 11:31:00 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => sdiConverter.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php3D3D.tmp
+            [error] => 0
+            [size] => 33066
+        )
+
+)
+
+[08-Oct-2024 21:49:49 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop
+    [item_description] => OMEN
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => VDLP#007
+    [item_status] => Working
+    [item_type] => New
+)
+
+[08-Oct-2024 21:49:49 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN LAPTOP.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpC866.tmp
+            [error] => 0
+            [size] => 243000
+        )
+
+)
+
+[09-Oct-2024 12:29:26 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop
+    [item_description] => 4545
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 4545
+    [item_status] => Faulty
+    [item_type] => New
+)
+
+[09-Oct-2024 12:29:26 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN LAPTOP.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php1C36.tmp
+            [error] => 0
+            [size] => 243000
+        )
+
+)
+
+[09-Oct-2024 21:31:19 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Recorder
+    [item_description] => VA_rec
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => #242ee
+    [item_status] => Working
+    [item_type] => New
+)
+
+[09-Oct-2024 21:31:19 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => Seinheisser Wireless Microphone.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpC987.tmp
+            [error] => 0
+            [size] => 106633
+        )
+
+)
+
+[11-Oct-2024 09:50:32 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Desktop
+    [item_description] => HP Old Version
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => #76534
+    [item_status] => Working
+    [item_type] => New
+)
+
+[11-Oct-2024 09:50:32 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN 40L.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpE69E.tmp
+            [error] => 0
+            [size] => 69583
+        )
+
+)
+
+[31-Oct-2024 19:47:53 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => rteert
+    [item_description] => re
+    [item_category] => SOUND
+    [stock_location] => Masoro
+    [serial_number] => erte
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 19:47:53 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpD3D0.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[31-Oct-2024 19:48:27 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => rteert
+    [item_description] => re
+    [item_category] => SOUND
+    [stock_location] => Masoro
+    [serial_number] => erte
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 19:48:27 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php5834.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[31-Oct-2024 19:48:44 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => rteert
+    [item_description] => re
+    [item_category] => SOUND
+    [stock_location] => Masoro
+    [serial_number] => erte
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 19:48:44 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => Monitor_24Inch.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php9916.tmp
+            [error] => 0
+            [size] => 90953
+        )
+
+)
+
+[31-Oct-2024 19:52:12 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => demo
+    [item_description] => desc
+    [item_category] => LIGHTS
+    [stock_location] => BK Arena
+    [serial_number] => 544545
+    [item_status] => Faulty
+    [item_type] => Existing
+)
+
+[31-Oct-2024 19:52:12 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpC5A7.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[31-Oct-2024 20:05:52 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => test
+    [item_category] => SIS
+    [stock_location] => Masoro
+    [serial_number] => @#sdfsdf
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:05:52 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpBD54.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[31-Oct-2024 20:16:18 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI2
+    [item_description] => desc
+    [item_category] => SIS
+    [stock_location] => KCC
+    [serial_number] => @#sdfsdf##
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:16:18 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php4B7F.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[31-Oct-2024 20:17:06 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MIN1
+    [item_description] => desc
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => @#sdfsdf##1
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:17:06 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php7DB.tmp
+            [error] => 0
+            [size] => 9555
+        )
+
+)
+
+[31-Oct-2024 20:22:12 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MIN2
+    [item_description] => 2
+    [item_category] => VIDEO
+    [stock_location] => Ndera
+    [serial_number] => @#sdfsdf##12
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:22:12 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpB445.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[31-Oct-2024 20:26:31 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap1
+    [item_description] => 1
+    [item_category] => VIDEO
+    [stock_location] => BK Arena
+    [serial_number] => 1
+    [item_status] => Faulty
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:26:31 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpA678.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[31-Oct-2024 20:32:28 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI UpDownCross
+    [item_description] => desc
+    [item_category] => IT
+    [stock_location] => BK Arena
+    [serial_number] => 8927767
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:32:28 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => UpDownCross_Converter.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php178A.tmp
+            [error] => 0
+            [size] => 26868
+        )
+
+)
+
+[31-Oct-2024 20:33:34 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => 3
+    [item_category] => IT
+    [stock_location] => Masoro
+    [serial_number] => 342
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:33:34 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php19B9.tmp
+            [error] => 0
+            [size] => 9555
+        )
+
+)
+
+[31-Oct-2024 20:35:05 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop
+    [item_description] => desc
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => 423
+    [item_status] => Needs Repair
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:35:05 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN LAPTOP.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php8050.tmp
+            [error] => 0
+            [size] => 243000
+        )
+
+)
+
+[31-Oct-2024 20:49:43 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop2
+    [item_description] => we
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 342
+    [item_status] => Faulty
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:49:43 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpE4FD.tmp
+            [error] => 0
+            [size] => 30173
+        )
+
+)
+
+[31-Oct-2024 20:51:03 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop2
+    [item_description] => er
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => 3422
+    [item_status] => Repaired
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:51:03 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php1BC8.tmp
+            [error] => 0
+            [size] => 9555
+        )
+
+)
+
+[31-Oct-2024 20:53:19 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI - HDMI3
+    [item_description] => 3
+    [item_category] => SOUND
+    [stock_location] => Masoro
+    [serial_number] => 3333
+    [item_status] => Needs Repair
+    [item_type] => Existing
+)
+
+[31-Oct-2024 20:53:19 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => 1.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php30B1.tmp
+            [error] => 0
+            [size] => 1903
+        )
+
+)
+
+[31-Oct-2024 21:02:06 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Tester
+    [item_description] => descTest
+    [item_category] => SOUND
+    [stock_location] => KCC
+    [serial_number] => 5CDjsd
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[31-Oct-2024 21:02:06 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => Screenshot 2024-07-22 125454.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php396C.tmp
+            [error] => 0
+            [size] => 1121128
+        )
+
+)
+
+[11-Nov-2024 17:48:38 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI-HDMI MINI
+    [item_description] => were
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => 543
+    [item_status] => Working
+    [item_type] => New
+)
+
+[11-Nov-2024 17:48:38 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpE629.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[13-Nov-2024 11:11:24 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => SDI - HDMI343
+    [item_description] => desc
+    [item_category] => VIDEO
+    [stock_location] => Masoro
+    [serial_number] => eref
+    [item_status] => Working
+    [item_type] => New
+)
+
+[13-Nov-2024 11:11:24 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php6E8D.tmp
+            [error] => 0
+            [size] => 9555
+        )
+
+)
+
+[13-Nov-2024 11:15:33 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Laptop_Gaming
+    [item_description] => Ideapad Gaming
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => Lpt-200
+    [item_status] => Working
+    [item_type] => New
+)
+
+[13-Nov-2024 11:15:33 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php3C4F.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[13-Nov-2024 11:16:40 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Utap
+    [item_description] => Video Converter
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => #767ASD#
+    [item_status] => Working
+    [item_type] => New
+)
+
+[13-Nov-2024 11:16:40 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => DC.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php4350.tmp
+            [error] => 0
+            [size] => 70620
+        )
+
+)
+
+[13-Nov-2024 11:19:25 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Charger
+    [item_description] => DescCharger
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => Dae4324`
+    [item_status] => Working
+    [item_type] => New
+)
+
+[13-Nov-2024 11:19:25 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpC76C.tmp
+            [error] => 0
+            [size] => 30173
+        )
+
+)
+
+[13-Nov-2024 11:35:11 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Clicker
+    [item_description] => Logitec
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => Log34#12
+    [item_status] => Working
+    [item_type] => New
+)
+
+[13-Nov-2024 11:35:11 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => OMEN LAPTOP.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php35A4.tmp
+            [error] => 0
+            [size] => 243000
+        )
+
+)
+
+[15-Nov-2024 18:22:45 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Camera
+    [item_description] => Sony 4K
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => SONY#001
+    [item_status] => Working
+    [item_type] => New
+)
+
+[15-Nov-2024 18:22:45 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => DC.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php9DC.tmp
+            [error] => 0
+            [size] => 70620
+        )
+
+)
+
+[26-Nov-2024 11:42:20 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Clicker
+    [item_description] => descClicker
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => clk#001
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[26-Nov-2024 11:42:20 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php900B.tmp
+            [error] => 0
+            [size] => 30173
+        )
+
+)
+
+[26-Nov-2024 14:51:38 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Tablet
+    [item_description] => descItem
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => #645
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[26-Nov-2024 14:51:38 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => DC.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php8BA8.tmp
+            [error] => 0
+            [size] => 70620
+        )
+
+)
+
+[26-Nov-2024 14:52:42 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => Clicker
+    [item_description] => clickerDesc
+    [item_category] => VIDEO
+    [stock_location] => KCC
+    [serial_number] => #001
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[26-Nov-2024 14:52:42 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php87DC.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[15-Dec-2024 15:46:36 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => 55' Inch 
+    [item_description] => Samsung LCD
+    [item_category] => VIDEO
+    [stock_location] => Masoro
+    [serial_number] => 054N3K6M500129P
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 15:46:36 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => 55' inch Samsung.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php5B70.tmp
+            [error] => 0
+            [size] => 752521
+        )
+
+)
+
+[15-Dec-2024 18:10:39 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => sdfdsf
+    [item_description] => sdfsd
+    [item_category] => VIDEO
+    [stock_location] => BK Arena
+    [serial_number] => sdfsdf
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 18:10:39 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php3CBB.tmp
+            [error] => 0
+            [size] => 9555
+        )
+
+)
+
+[15-Dec-2024 18:14:12 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => sdfsdf
+    [item_description] => sdfsdf
+    [item_category] => VIDEO
+    [stock_location] => BK Arena
+    [serial_number] => sdfsdf
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 18:14:12 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php7C67.tmp
+            [error] => 0
+            [size] => 9555
+        )
+
+)
+
+[15-Dec-2024 18:14:15 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => sdfsdf
+    [item_description] => sdfsdf
+    [item_category] => VIDEO
+    [stock_location] => BK Arena
+    [serial_number] => sdfsdf
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 18:14:15 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php8958.tmp
+            [error] => 0
+            [size] => 9555
+        )
+
+)
+
+[15-Dec-2024 18:23:42 Europe/Berlin] Array
+(
+    [item_id] => 
+    [item_name] => test
+    [item_description] => desc
+    [item_category] => IT
+    [stock_location] => KCC
+    [serial_number] => werwqe
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 18:23:42 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bgCode.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php2F47.tmp
+            [error] => 0
+            [size] => 69062
+        )
+
+)
+
+[15-Dec-2024 19:48:32 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => testclicker
+    [item_description] => this is a test
+    [item_category] => IT
+    [stock_location] => Masoro
+    [serial_number] => #003
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 19:48:32 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpD9D2.tmp
+            [error] => 0
+            [size] => 30173
+        )
+
+)
+
+[15-Dec-2024 19:48:32 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php:76
+Stack trace:
+#0 C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php(76): mysqli_stmt->bind_param('sssssssss', 'testclicker', '1', 'this is a test', 'IT', '#003', 'Masoro', 'Working', 'Existing', 'bg.jpeg', '2024-12-15')
+#1 {main}
+  thrown in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php on line 76
+[15-Dec-2024 19:48:44 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => testclicker
+    [item_description] => this is a test
+    [item_category] => IT
+    [stock_location] => Masoro
+    [serial_number] => #003
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 19:48:44 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpAF5.tmp
+            [error] => 0
+            [size] => 30173
+        )
+
+)
+
+[15-Dec-2024 19:48:44 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php:76
+Stack trace:
+#0 C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php(76): mysqli_stmt->bind_param('sssssssss', 'testclicker', '1', 'this is a test', 'IT', '#003', 'Masoro', 'Working', 'Existing', 'bg.jpeg', '2024-12-15')
+#1 {main}
+  thrown in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php on line 76
+[15-Dec-2024 19:48:58 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => testclicker
+    [item_description] => this is a test
+    [item_category] => IT
+    [stock_location] => Masoro
+    [serial_number] => #003
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 19:48:58 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php3FD1.tmp
+            [error] => 0
+            [size] => 30173
+        )
+
+)
+
+[15-Dec-2024 19:48:58 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php:76
+Stack trace:
+#0 C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php(76): mysqli_stmt->bind_param('sssssssss', 'testclicker', '1', 'this is a test', 'IT', '#003', 'Masoro', 'Working', 'Existing', 'bg.jpeg', '2024-12-15')
+#1 {main}
+  thrown in C:\xampp\htdocs\projectDash\projectK\seantheme.com\color-admin\admin\html\add_item.php on line 76
+[15-Dec-2024 19:50:59 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => testclicker
+    [item_description] => this is a test
+    [item_category] => IT
+    [stock_location] => Masoro
+    [serial_number] => #003
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 19:50:59 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php17AF.tmp
+            [error] => 0
+            [size] => 30173
+        )
+
+)
+
+[15-Dec-2024 19:50:59 Europe/Berlin] Prepare failed: (1136) Column count doesn't match value count at row 1
+[15-Dec-2024 19:51:29 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => testclicker
+    [item_description] => this is a test
+    [item_category] => IT
+    [stock_location] => Masoro
+    [serial_number] => #003
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 19:51:29 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => bg.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php8C72.tmp
+            [error] => 0
+            [size] => 30173
+        )
+
+)
+
+[15-Dec-2024 19:55:33 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => Test item2
+    [item_description] => this is a test2
+    [item_category] => SOUND
+    [stock_location] => Masoro
+    [serial_number] => #004
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 19:55:33 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => 55' inch Samsung.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php4759.tmp
+            [error] => 0
+            [size] => 752521
+        )
+
+)
+
+[15-Dec-2024 19:56:09 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => Test item2
+    [item_description] => this is a test2
+    [item_category] => SOUND
+    [stock_location] => Masoro
+    [serial_number] => #004
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 19:56:09 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => 55' inch Samsung.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpD33E.tmp
+            [error] => 0
+            [size] => 752521
+        )
+
+)
+
+[15-Dec-2024 19:58:13 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => Test item2
+    [item_description] => this is a test2
+    [item_category] => SOUND
+    [stock_location] => Masoro
+    [serial_number] => #004
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 19:58:13 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => 55' inch Samsung.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpB993.tmp
+            [error] => 0
+            [size] => 752521
+        )
+
+)
+
+[15-Dec-2024 19:59:08 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => Test item2
+    [item_description] => this is a test2
+    [item_category] => SOUND
+    [stock_location] => Masoro
+    [serial_number] => #004
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 19:59:08 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => 55' inch Samsung.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php8CF1.tmp
+            [error] => 0
+            [size] => 752521
+        )
+
+)
+
+[15-Dec-2024 20:05:09 Europe/Berlin] Array
+(
+    [item_id] => 
+    [subcategory] => 1
+    [item_name] => Test item2
+    [item_description] => this is a test2
+    [item_category] => SOUND
+    [stock_location] => Masoro
+    [serial_number] => #004
+    [item_status] => Working
+    [item_type] => Existing
+)
+
+[15-Dec-2024 20:05:09 Europe/Berlin] Array
+(
+    [item_image] => Array
+        (
+            [name] => 55' inch Samsung.jpeg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php12E3.tmp
+            [error] => 0
+            [size] => 752521
+        )
+
+)
+

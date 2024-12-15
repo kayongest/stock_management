@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>:: USERS</title>
+    <link rel="shortcut icon" href="../assets/img/stock.png" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      name="viewport"
+    />
+
+    <meta name="description" content="Event Management Platform" />
+    <meta name="author" content="Kayonga Raul" />
+
+    <!-- Vendor CSS -->
+    <link href="../assets/css/vendor.min.css" rel="stylesheet" />
+    <link href="../assets/css/default/app.min.css" rel="stylesheet" />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- DataTables CSS -->
+    <link
+      href="../assets/plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../assets/plugins/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Qr code script -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js"
+      integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Sweet Alert -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+    <!-- DataTables CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+    />
+
+    <!-- jQuery (necessary for DataTables) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <style>
+      /* Google Fonts  */
+      @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap");
+      * {
+        font-family: "Titillium Web", sans-serif;
+      }
+      .app-header {
+        background-color: #35374b;
+      }
+
+      /* Ensure no global styles are applied */
+      body {
+        filter: none !important;
+        backdrop-filter: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="loader" class="app-loader">
+      <span class="spinner"></span>
+    </div>
+
+    <div id="app" class="app app-header-fixed app-sidebar-fixed">
+      <div id="header" class="app-header text-white">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand text-white">
+            <b class="me-3px">[aB]</b>ility</a
+          >
+          <button
+            type="button"
+            class="navbar-mobile-toggler"
+            data-toggle="app-sidebar-mobile"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        
+      </div>
+
+     
+      <div class="app-sidebar-bg" data-bs-theme="dark"></div>
+      <div class="app-sidebar-mobile-backdrop">
+        <a
+          href="#"
+          data-dismiss="app-sidebar-mobile"
+          class="stretched-link"
+        ></a>
+      </div>
+
+      <div id="content" class="app-content">
+      
+
+        <div class="row">
+          <!-- First Column -->
+          <div class="col-md-5">
+            <div
+              class="panel panel-inverse"
+              data-sortable-id="form-validation-1"
+            >
+              <div class="panel-heading" style="background: #04364a">
+                <h4 class="panel-title">User Management</h4>
+                <div class="panel-heading-btn">
+                  <a
+                    href="javascript:;"
+                    class="btn btn-xs btn-icon btn-default"
+                    data-toggle="panel-expand"
+                  >
+                    <i class="fa fa-expand"></i>
+                  </a>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-xs btn-icon btn-success"
+                    data-toggle="panel-reload"
+                  >
+                    <i class="fa fa-redo"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="panel-body">
+                <form
+                  id="addUserForm"
+                  class="form-horizontal"
+                  data-parsley-validate="true"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+                  <div class="form-group row mb-3">
+                    <label
+                      class="col-lg-4 col-form-label form-label"
+                      for="fullname"
+                      >Full Name</label
+                    >
+                    <div class="col-lg-8">
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="Full name"
+                        data-parsley-required="true"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label
+                      class="col-lg-4 col-form-label form-label"
+                      for="email"
+                      >Email</label
+                    >
+                    <div class="col-lg-8">
+                      <input
+                        class="form-control"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        data-parsley-required="true"
+                        data-parsley-type="email"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label
+                      class="col-lg-4 col-form-label form-label"
+                      for="password"
+                      >Password</label
+                    >
+                    <div class="col-lg-8">
+                      <input
+                        class="form-control"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        data-parsley-required="true"
+                        data-parsley-minlength="6"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row mb-3">
+                    <label
+                      class="col-lg-4 col-form-label form-label"
+                      for="confirm_password"
+                      >Confirm Password</label
+                    >
+                    <div class="col-lg-8">
+                      <input
+                        class="form-control"
+                        type="password"
+                        id="confirm_password"
+                        name="confirm_password"
+                        placeholder="Confirm Password"
+                        data-parsley-required="true"
+                        data-parsley-equalto="#password"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label
+                      class="col-lg-4 col-form-label form-label"
+                      for="phone"
+                      >Phone</label
+                    >
+                    <div class="col-lg-8">
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        placeholder="Phone"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label
+                      class="col-lg-4 col-form-label form-label"
+                      for="profile-picture"
+                      >Profile Picture</label
+                    >
+                    <div class="col-lg-8">
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="profile-picture"
+                        name="profile_picture"
+                        accept="image/*"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label class="col-lg-4 col-form-label form-label" for="role"
+                      >Role</label
+                    >
+                    <div class="col-lg-8">
+                      <select
+                        class="form-select"
+                        id="role"
+                        name="role"
+                        required
+                      >
+                        <option value="">-- select --</option>
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Tech Lead">Tech Lead</option>
+                        <option value="Technician">Technician</option>
+                        <option value="Stock Controller">
+                          Stock Controller
+                        </option>
+                        <option value="Event Coordinator">
+                          Event Coordinator
+                        </option>
+                        <option value="Project Manager">Project Manager</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-lg-8 offset-lg-4">
+                      <button
+                        type="submit"
+                        class="btn btn-success btn-sm float-end"
+                      >
+                        Add User
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <div class="row gx-2 mb-1">
+                <div class="col-6">
+                  <a href="#" class="widget-card rounded square mb-1">
+                    <div
+                      class="widget-card-cover"
+                      style="
+                        background-image: url(../assets/img/login-bg/login-bg-1-thumb.jpg);
+                      "
+                    ></div>
+                  </a>
+                  <a href="#" class="widget-card rounded square mb-1">
+                    <div
+                      class="widget-card-cover"
+                      style="
+                        background-image: url(../assets/img/login-bg/login-bg-2-thumb.jpg);
+                      "
+                    ></div>
+                  </a>
+                </div>
+
+                <div class="col-6">
+                  <a href="#" class="widget-card rounded square mb-1">
+                    <div
+                      class="widget-card-cover"
+                      style="
+                        background-image: url(../assets/img/login-bg/login-bg-3-thumb.jpg);
+                      "
+                    ></div>
+                  </a>
+                  <a href="#" class="widget-card rounded square mb-1">
+                    <div
+                      class="widget-card-cover"
+                      style="
+                        background-image: url(../assets/img/login-bg/login-bg-4-thumb.jpg);
+                      "
+                    ></div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="fs-12px fw-bold text-body">Camera Roll</div>
+              <div class="fs-10px fw-bold text-body text-opacity-50 mb-3">
+                2,711
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Column -->
+          <div class="col-md-7">
+            <div class="panel panel-inverse">
+              <div class="panel-heading">
+                <h4 class="panel-title">All Users</h4>
+                <span class="badge bg-teal" id="userCount">Loading...</span>
+              </div>
+              <div class="panel-body">
+                <table
+                  id="userTable"
+                  class="table table-striped table-bordered"
+                >
+                  <thead>
+                    <tr>
+                      <th>User ID</th>
+                      <th>Full Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Role</th>
+                      <th>Photo</th>
+                      <th>Created At</th>
+                    </tr>
+                  </thead>
+                  <tbody id="userTableBody">
+                    <!-- User rows will be inserted here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="javascript:;"
+        class="btn btn-icon btn-circle btn-theme btn-scroll-to-top"
+        data-toggle="scroll-to-top"
+        ><i class="fa fa-angle-up"></i
+      ></a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Your custom scripts -->
+   
+
+    <!-- Vendor and Plugin Scripts -->
+    <script src="../assets/js/vendor.min.js"></script>
+    <script src="../assets/js/app.min.js"></script>
+    <script src="../assets/plugins/datatables.net/js/dataTables.min.js"></script>
+    <script src="../assets/plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../assets/plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="../assets/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../assets/plugins/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="../assets/plugins/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="../assets/plugins/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../assets/plugins/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../assets/plugins/pdfmake/build/vfs_fonts.js"></script>
+    <script src="../assets/plugins/jszip/dist/jszip.min.js"></script>
+    <script src="../assets/js/demo/table-manage-buttons.demo.js"></script>
+    <script src="../assets/plugins/%40highlightjs/cdn-assets/highlight.min.js"></script>
+    <script src="../assets/js/demo/render.highlight.js"></script>
+  </body>
+</html>

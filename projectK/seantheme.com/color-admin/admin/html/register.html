@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from seantheme.com/color-admin/admin/html/register_v3.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 10 Sep 2024 13:59:43 GMT -->
+  <head>
+    <meta charset="utf-8" />
+    <title>:: Register</title>
+    <link rel="shortcut icon" href="../assets/img/enter.png" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      name="viewport"
+    />
+    <meta content name="description" />
+    <meta content name="author" />
+
+    <link href="../assets/css/vendor.min.css" rel="stylesheet" />
+    <link href="../assets/css/default/app.min.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Toastr CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/toastr@latest/toastr.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Google Fonts  */
+      @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap");
+      * {
+        font-family: "Titillium Web", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="pace-top">
+    <div id="loader" class="app-loader">
+      <span class="spinner"></span>
+    </div>
+
+    <div id="app" class="app">
+      <div class="register register-with-news-feed">
+        <div class="news-feed">
+          <div
+            class="news-image"
+            style="
+              background-image: url(../assets/img/login-bg/login-bg-15.jpg);
+            "
+          ></div>
+          <div class="news-caption">
+            <h4 class="caption-title"><b>[aB]</b>ility App</h4>
+            <p>
+              <b>[aB]</b>ility App administrator uses a console to manage
+              organization’s account, such as add new users, manage security
+              settings, and turning on the services for the team to access.
+            </p>
+          </div>
+        </div>
+
+        <div class="register-container">
+          <div class="register-header mb-25px h1">
+            <div class="mb-1">Register</div>
+            <small class="d-block fs-15px lh-16"
+              >Please enter your information.</small
+            >
+          </div>
+
+          <div class="register-content">
+            <form id="registerForm">
+              <div class="mb-3">
+                <label class="mb-2"
+                  >Full Name <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  name="full_name"
+                  class="form-control fs-13px"
+                  placeholder="Full name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="mb-2">Phone</label>
+                <input
+                  type="text"
+                  name="phone"
+                  class="form-control fs-13px"
+                  placeholder="Phone number"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="mb-2"
+                  >Email <span class="text-danger">*</span></label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control fs-13px"
+                  placeholder="Email address"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="mb-2"
+                  >Password <span class="text-danger">*</span></label
+                >
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control fs-13px"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <button
+                  type="submit"
+                  class="btn btn-theme d-block w-50 btn-sm h-45px fs-15px"
+                >
+                  Sign Up
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="javascript:;"
+        class="btn btn-icon btn-circle btn-theme btn-scroll-to-top"
+        data-toggle="scroll-to-top"
+        ><i class="fa fa-angle-up"></i
+      ></a>
+    </div>
+
+    <!-- Toastr JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/toastr@latest/toastr.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // Submit registration form via AJAX
+        $("form").on("submit", function (e) {
+          e.preventDefault();
+
+          // Collect form data
+          const formData = {
+            full_name: $('input[name="full_name"]').val(),
+            phone: $('input[name="phone"]').val(),
+            email: $('input[name="email"]').val(),
+            password: $('input[name="password"]').val(),
+          };
+
+          // Send AJAX request to the PHP registration script
+          $.ajax({
+            type: "POST",
+            url: "register_user.php", // The path to your PHP script
+            data: formData,
+            dataType: "json",
+            success: function (response) {
+              if (response.status === "success") {
+                // Display success notification
+                toastr.success(response.message, "Success", {
+                  positionClass: "toast-top-right",
+                  closeButton: true,
+                  progressBar: true,
+                });
+
+                // Optionally, redirect the user after registration
+                setTimeout(function () {
+                  window.location.href = "login.html";
+                }, 2000); // Redirect after 2 seconds
+              } else {
+                // Display error notification
+                toastr.error(response.message, "Error", {
+                  positionClass: "toast-top-right",
+                  closeButton: true,
+                  progressBar: true,
+                });
+              }
+            },
+            error: function (xhr, status, error) {
+              toastr.error("An error occurred. Please try again.", "Error", {
+                positionClass: "toast-top-right",
+                closeButton: true,
+                progressBar: true,
+              });
+            },
+          });
+        });
+      });
+    </script>
+
+    <script
+      src="../assets/js/vendor.min.js"
+      type="a0bdcab5b1b2c95c106c91a7-text/javascript"
+    ></script>
+    <script
+      src="../assets/js/app.min.js"
+      type="a0bdcab5b1b2c95c106c91a7-text/javascript"
+    ></script>
+
+    >
+    <script
+      src="../../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+      data-cf-settings="a0bdcab5b1b2c95c106c91a7-|49"
+      defer
+    ></script>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+      integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+    ></script>
+  </body>
+</html>
