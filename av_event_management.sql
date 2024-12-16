@@ -159,7 +159,7 @@ CREATE TABLE `items` (
   `serial_number` varchar(100) NOT NULL,
   `stock_location` enum('Masoro','KCC','BK Arena','Ndera','Rugando') DEFAULT NULL,
   `item_status` enum('New','Working','Faulty','Needs Repair','Repaired','Leased') DEFAULT NULL,
-  `date_added` date NOT NULL DEFAULT current_timestamp(),
+  `date_added` TIMESTAMP NOT NULL DEFAULT current_timestamp(),
   `update_date` date DEFAULT NULL,
   `item_type` enum('New','Existing') NOT NULL DEFAULT 'Existing',
   `qr_code_url` varchar(255) DEFAULT NULL

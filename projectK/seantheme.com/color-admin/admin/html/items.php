@@ -1,37 +1,33 @@
 <?php
-session_start(); // Start the session at the top of your file
+  session_start(); // Start the session at the top of your file
 
-// Ensure session variables are available
-$fullName = isset($_SESSION['full_name']) ? $_SESSION['full_name'] : 'Guest';
-$userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null; // Assuming user_id is saved in session
+  // Ensure session variables are available
+  $fullName = isset($_SESSION['full_name']) ? $_SESSION['full_name'] : 'Guest';
+  $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null; // Assuming user_id is saved in session
 
-// Check if a user is logged in
-if ($userId) {
-    // Include database connection file
-    require_once 'config.php';
+  // Check if a user is logged in
+  if ($userId) {
+      // Include database connection file
+      require_once 'config.php';
 
-    // Prepare and execute the query to get the user's photo
-    $sql = "SELECT photo FROM users WHERE user_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $stmt->bind_result($photo);
-    $stmt->fetch();
-    $stmt->close();
+      // Prepare and execute the query to get the user's photo
+      $sql = "SELECT photo FROM users WHERE user_id = ?";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("i", $userId);
+      $stmt->execute();
+      $stmt->bind_result($photo);
+      $stmt->fetch();
+      $stmt->close();
 
-    // If the photo is empty or not found, use the default photo
-    if (empty($photo)) {
-        $photo = 'assets/img/user/default-user.jpg'; // Default photo
-    }
-} else {
-    // If no user is logged in, use the default photo
-    $photo = 'assets/img/user/default-user.jpg';
-}
+      // If the photo is empty or not found, use the default photo
+      if (empty($photo)) {
+          $photo = 'assets/img/user/default-user.jpg'; // Default photo
+      }
+  } else {
+      // If no user is logged in, use the default photo
+      $photo = 'assets/img/user/default-user.jpg';
+  }
 ?>
-
-<!-- Display the photo -->
-<img src="<?php echo $photo; ?>" alt="User Photo" class="img-fluid" />
-
 
 
 <!DOCTYPE html>
@@ -39,7 +35,7 @@ if ($userId) {
 
 <head>
   <meta charset="utf-8" />
-  <title>:: ITEMS</title>
+  <title>ITEMS</title>
   <link rel="shortcut icon" href="../assets/img/users.png" />
   <meta
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -287,7 +283,7 @@ if ($userId) {
         </div>
       </div>
     </div>
-    <div class="app-sidebar-bg" data-bs-theme="dark"></div>
+    
     <div class="app-sidebar-mobile-backdrop">
       <a
         href="#"
@@ -297,545 +293,334 @@ if ($userId) {
 
     <div id="content" class="app-content">
       <div class="row">
-
-        <div class="col-xl-6 ui-sortable">
-          <div class="panel panel-inverse" data-sortable-id="ui-widget-11">
-            <div class="panel-heading ui-sortable-handle" style="background:#0b6b94">
-              <h4 class="panel-title">Equipment Overview</h4>
-              <div class="panel-heading-btn">
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-lg-3">
-                  <div
-                    class="widget widget-stats bg-"
-                    style="background-color: #2D3250">
-                    <div class="stats-icon">
-                      <i class="fa fa-users-gear"></i>
-                      <img src="" alt="" />
-                    </div>
-                    <div class="stats-info">
-                      <h4>Total Items</h4>
-                      <p>1</p>
-                    </div>
-                    <div class="stats-link">
-                      <a href="javascript:;">View Detail </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div
-                    class="widget widget-stats bg-"
-                    style="background-color: #5C8374">
-                    <div class="stats-icon"><i class="fa fa-user-friends"></i></div>
-                    <div class="stats-info">
-                      <h4>Available Items</h4>
-                      <p>1</p>
-                    </div>
-                    <div class="stats-link">
-                      <a href="javascript:;">View Detail
-                        <!-- <i class="fa fa-arrow-alt-circle-right"></i> -->
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div
-                    class="widget widget-stats bg-"
-                    style="background-color: #535C91">
-                    <div class="stats-icon"><i class="fa fa-user-friends"></i></div>
-                    <div class="stats-info">
-                      <h4>Checked-Out Items</h4>
-                      <p>0</p>
-                    </div>
-                    <div class="stats-link">
-                      <a href="javascript:;">View Detail
-                        <!-- <i class="fa fa-arrow-alt-circle-right"></i> -->
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div
-                    class="widget widget-stats bg-"
-                    style="background-color: #F05941">
-                    <div class="stats-icon"><i class="fa fa-user-friends"></i></div>
-                    <div class="stats-info">
-                      <h4>Damaged Items</h4>
-                      <p>0</p>
-                    </div>
-                    <div class="stats-link">
-                      <a href="javascript:;">View Detail
-                        <!-- <i class="fa fa-arrow-alt-circle-right"></i> -->
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="hljs-wrapper">
-                <pre><code class="html hljs language-xml" data-url="../assets/data/ui-widget-boxes/code-11.json" data-highlighted="yes"></code></pre>
-              </div> -->
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-6 ui-sortable">
-          <div class="panel panel-inverse" data-sortable-id="ui-widget-11">
-            <div class="panel-heading">
-              <h4 class="panel-title">Inventory Status</h4>
-              <div class="panel-heading-btn">
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-lg-3">
-                  <div
-                    class="widget widget-stats bg-"
-                    style="background-color: #1A1A19">
-                    <div class="stats-icon">
-                      <i class="fa fa-users-gear"></i>
-                      <img src="" alt="" />
-                    </div>
-                    <div class="stats-info">
-                      <h4>Low Stock Items</h4>
-                      <p>15</p>
-                    </div>
-                    <div class="stats-link">
-                      <a href="javascript:;">View Detail </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div
-                    class="widget widget-stats bg-"
-                    style="background-color: #31511E">
-                    <div class="stats-icon"><i class="fa fa-user-friends"></i></div>
-                    <div class="stats-info">
-                      <h4>New Items</h4>
-                      <p>6</p>
-                    </div>
-                    <div class="stats-link">
-                      <a href="javascript:;">View Detail
-                        <!-- <i class="fa fa-arrow-alt-circle-right"></i> -->
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div
-                    class="widget widget-stats bg-"
-                    style="background-color: #028391">
-                    <div class="stats-icon"><i class="fa fa-user-friends"></i></div>
-                    <div class="stats-info">
-                      <h4>Leased Items</h4>
-                      <p>10</p>
-                    </div>
-                    <div class="stats-link">
-                      <a href="javascript:;">View Detail
-                        <!-- <i class="fa fa-arrow-alt-circle-right"></i> -->
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div
-                    class="widget widget-stats bg-"
-                    style="background-color: #399918">
-                    <div class="stats-icon"><i class="fa fa-user-friends"></i></div>
-                    <div class="stats-info">
-                      <h4>Returned Items</h4>
-                      <p>6</p>
-                    </div>
-                    <div class="stats-link">
-                      <a href="javascript:;">View Detail
-                        <!-- <i class="fa fa-arrow-alt-circle-right"></i> -->
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="hljs-wrapper">
-                <pre><code class="html hljs language-xml" data-url="../assets/data/ui-widget-boxes/code-11.json" data-highlighted="yes"></code></pre>
-              </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="row">
         <div class="col-xl-12">
-          <div class="panel panel-inverse">
+          <div class="panel">
             <div class="panel-heading">
               <h4 class="panel-title">ITEMS</h4>
               <div class="panel-heading-btn">
                 <a
+                  href="#modal-dialog"
+                  class="btn btn-xs text-white"
+                  style="background-color: #0b6b94"
+                  data-bs-toggle="modal"
+                  data-bs-target="#categoryModal">ADD A CATEGORY</a>
+                <a
+                  href="#modal-dialog"
+                  class="btn btn-xs text-white"
+                  style="background-color: #0b6b94"
+                  data-bs-toggle="modal"
+                  data-bs-target="#brandModal">ADD A BRAND</a>
+                <a
+                  href="#modal-dialog"
+                  class="btn btn-xs text-white"
+                  style="background-color: #0b6b94"
+                  data-bs-toggle="modal"
+                  data-bs-target="#itemModal">ADD AN ITEM</a>
+                <a
                   href="javascript:;"
                   class="btn btn-xs btn-icon btn-success"
                   data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
-                <a
-                  href="javascript:;"
-                  class="btn btn-xs btn-icon btn-warning"
-                  data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
               </div>
             </div>
 
-            <div class="panel-footer">
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <a
-                      href="#modal-dialog"
-                      class="btn btn-md me-1 text-white"
-                      style="background-color: #0b6b94"
-                      data-bs-toggle="modal"
-                      data-bs-target="#categoryModal">ADD A CATEGORY</a>
-                    <a
-                      href="#modal-dialog"
-                      class="btn btn-md me-1 text-white"
-                      style="background-color: #0b6b94"
-                      data-bs-toggle="modal"
-                      data-bs-target="#brandModal">ADD A BRAND</a>
-                    <a
-                      href="#modal-dialog"
-                      class="btn btn-md me-1 text-white"
-                      style="background-color: #0b6b94"
-                      data-bs-toggle="modal"
-                      data-bs-target="#itemModal">ADD AN ITEM</a>
+            <div class="panel-body">
+              <table
+                id="itemTable"
+                class="display table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Brand</th>
+                    <th>Description</th>
+                    <th>Serial Number</th>
+                    <th>Status</th>
+                    <th>Stock</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="itemList">
+                  <!-- Table rows will be inserted here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Start Modlals -->
+    <!-- Add Category Modal -->
+    <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #20425f">
+            <h4 class="modal-title text-white" id="itemModalLabel">CATEGORIES</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="categoryForm" enctype="multipart/form-data">
+              <!-- Grid System for Two Columns -->
+              <div class="row">
+                <!-- Column 1 -->
+                <div class="col-md-5">
+                  <div class="mb-3">
+                    <label for="category_name" class="form-label">Category Name</label>
+                    <input type="text" class="form-control" id="category_name" name="category_name" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="category_description" class="form-label">Category Description</label>
+                    <textarea class="form-control" id="category_description" name="category_description"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="category_tag" class="form-label">Category Tag</label>
+                    <select class="form-select" id="category_tag" name="category_tag" required>
+                      <option value="">-- select --</option>
+                      <option value="VIDEO">VIDEO</option>
+                      <option value="IT">IT</option>
+                      <option value="SOUND">SOUND</option>
+                      <option value="SIS">SIS</option>
+                      <option value="LIGHTS">LIGHTS</option>
+                      <option value="OTHER">OTHER</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <button type="button" class="btn btn-success" onclick="addACategory()" id="addCategory">Add A Category</button>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- Modal -->
-          <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-header" style="background-color: #20425f">
-                  <h4 class="modal-title text-white" id="itemModalLabel">ADD ITEM</h4>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="col-md-7">
+                  <h6>Categories</h6>
+                  <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                    <table class="table table-striped table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Tag</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoryTableBody">
+                            <!-- Dynamic rows will be appended here -->
+                        </tbody>
+                    </table>
                 </div>
-                <div class="modal-body">
-                  <form id="itemForm" enctype="multipart/form-data">
-                    <!-- Hidden Input for Item ID -->
-                    <input type="hidden" id="item_id" name="item_id" />
-
-                    <!-- Grid System for Two Columns -->
-                    <div class="row">
-                      <!-- Column 1 -->
-                      <div class="col-md-6">
-                        <div class="mb-3">
-                          <label for="subcategory">Subcategory</label>
-                          <select class="form-select" id="subcategory" name="subcategory">
-                            <option value="">chose a subcategory</option>
-                            <option value="1">clicker</option>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="item_name" class="form-label">Item Name</label>
-                          <input type="text" class="form-control" id="item_name" name="item_name" required />
-                        </div>
-                        <div class="mb-3">
-                          <label for="item_description" class="form-label">Item Description</label>
-                          <textarea class="form-control" id="item_description" name="item_description"></textarea>
-                        </div>
-                        <div class="mb-3">
-                          <label for="item_category" class="form-label">Item Category</label>
-                          <select class="form-select" id="item_category" name="item_category" required>
-                            <option value="">-- select --</option>
-                            <option value="VIDEO">VIDEO</option>
-                            <option value="IT">IT</option>
-                            <option value="SOUND">SOUND</option>
-                            <option value="SIS">SIS</option>
-                            <option value="LIGHTS">LIGHTS</option>
-                            <option value="OTHER">OTHER</option>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="stock_location" class="form-label">Stock Location</label>
-                          <select class="form-select" id="stock_location" name="stock_location" required>
-                            <option value="">-- select --</option>
-                            <option value="Masoro">Masoro</option>
-                            <option value="KCC">KCC</option>
-                            <option value="BK Arena">BK Arena</option>
-                            <option value="Ndera">Ndera</option>
-                            <option value="Rugando">Rugando</option>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="serial_number" class="form-label">Serial Number</label>
-                          <input type="text" class="form-control" id="serial_number" name="serial_number" required />
-                        </div>
-                      </div>
-
-                      <!-- Column 2 -->
-                      <div class="col-md-6">
-
-                        <div class="mb-3">
-                          <label for="item_status" class="form-label">Item Status</label>
-                          <select class="form-select" id="item_status" name="item_status" required>
-                            <option value="">-- select --</option>
-                            <option value="Working">Working</option>
-                            <option value="Faulty">Faulty</option>
-                            <option value="Needs Repair">Needs Repair</option>
-                            <option value="Repaired">Repaired</option>
-                            <option value="Leased">Leased</option>
-                          </select>
-                        </div>
-                        <div class="mb-2">
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex flex-column">
-                              <label for="itemTypeSwitch" class="form-label md-0" id="itemTypeLabel">Item State:</label>
-                              <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="itemTypeSwitch" name="item_type" value="New" onchange="toggleItemType()" />
-                                <input type="hidden" name="item_type" value="Existing" />
-                              </div>
-                            </div>
-                            <div id="itemStatePill" class="btn btn-xs btn-dark mt-2">Existing</div>
-                          </div>
-                        </div>
-
-                        <script>
-                          function toggleItemType() {
-                            const switchInput = document.getElementById("itemTypeSwitch");
-                            const itemStatePill = document.getElementById("itemStatePill");
-
-                            if (switchInput.checked) {
-                              itemStatePill.innerText = "New";
-                              itemStatePill.className = "btn btn-xs btn-success ms-2"; // Green for new
-                            } else {
-                              itemStatePill.innerText = "Existing";
-                              itemStatePill.className = "btn btn-xs btn-dark ms-2"; // Gray for existing
-                            }
-                          }
-                        </script>
-
-                        <div class="mb-3">
-                          r <label for="item_image" class="form-label">Item Image</label>
-                          <input type="file" class="form-control" id="item_image" name="item_image" accept="image/*" onchange="previewImage(event)" />
-                          <img id="image_preview" src="#" alt="Image Preview" class="img-fluid mt-2" style="display: none; max-width: 100%" />
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="saveItem">Save Item</button>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <!-- Modal -->
-          <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-header" style="background-color: #20425f">
-                  <h4 class="modal-title text-white" id="itemModalLabel">ADD ITEM</h4>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form id="itemForm" enctype="multipart/form-data">
-                    <!-- Hidden Input for Item ID -->
-                    <input type="hidden" id="item_id" name="item_id" />
-
-                    <!-- Grid System for Two Columns -->
-                    <div class="row">
-                      <!-- Column 1 -->
-                      <div class="col-md-6">
-                        <div class="mb-3">
-                          <label for="item_name" class="form-label">Item Name</label>
-                          <input type="text" class="form-control" id="item_name" name="item_name" required />
-                        </div>
-                        <div class="mb-3">
-                          <label for="item_description" class="form-label">Item Description</label>
-                          <textarea class="form-control" id="item_description" name="item_description"></textarea>
-                        </div>
-                        <div class="mb-3">
-                          <label for="item_category" class="form-label">Item Category</label>
-                          <select class="form-select" id="item_category" name="item_category" required>
-                            <option value="">-- select --</option>
-                            <option value="VIDEO">VIDEO</option>
-                            <option value="IT">IT</option>
-                            <option value="SOUND">SOUND</option>
-                            <option value="SIS">SIS</option>
-                            <option value="LIGHTS">LIGHTS</option>
-                            <option value="OTHER">OTHER</option>
-                          </select>
-                        </div>
-                      
-                      </div>
-
-                      
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="saveItem">Save Item</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Modal for Editing Items -->
-          <div class="modal fade" id="editItemModal" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-header" style="background-color: #20425f">
-                  <h4 class="modal-title text-white" id="editItemModalLabel">EDIT ITEM</h4>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form id="editItemForm" enctype="multipart/form-data">
-                    <input type="hidden" id="edit_item_id" name="item_id" />
-                    <div class="row">
-                      <div class="col-md-6">
-                        <!-- Item Name -->
-                        <div class="mb-3">
-                          <label for="edit_item_name" class="form-label">Item Name</label>
-                          <input type="text" class="form-control" id="edit_item_name" name="item_name" required />
-                        </div>
-
-                        <!-- Item Description -->
-                        <div class="mb-3">
-                          <label for="edit_item_description" class="form-label">Item Description</label>
-                          <textarea class="form-control" id="edit_item_description" name="item_description" required></textarea>
-                        </div>
-
-                        <!-- Item Category -->
-                        <div class="mb-3">
-                          <label for="edit_item_category" class="form-label">Item Category</label>
-                          <select class="form-select" id="edit_item_category" name="item_category" required>
-                            <option value="">-- select --</option>
-                            <option value="VIDEO">VIDEO</option>
-                            <option value="IT">IT</option>
-                            <option value="SOUND">SOUND</option>
-                            <option value="SIS">SIS</option>
-                            <option value="LIGHTS">LIGHTS</option>
-                            <option value="OTHER">OTHER</option>
-                          </select>
-                        </div>
-
-                        <!-- Stock Location -->
-                        <div class="mb-3">
-                          <label for="edit_item_location" class="form-label">Stock Location</label>
-                          <select class="form-select" id="edit_stock_location" name="stock_location" required>
-                            <option value="">-- select --</option>
-                            <option value="Masoro">Masoro</option>
-                            <option value="KCC">KCC</option>
-                            <option value="BK Arena">BK Arena</option>
-                            <option value="Ndera">Ndera</option>
-                            <option value="Rugando">Rugando</option>
-                          </select>
-                        </div>
-
-                        <!-- Serial Number -->
-                        <div class="mb-3">
-                          <label for="edit_item_serial_number" class="form-label">Serial Number</label>
-                          <input type="text" class="form-control" id="edit_item_serial_number" name="serial_number" required />
-                        </div>
-                      </div>
-
-                      <div class="col-md-6">
-                        <!-- Item Status -->
-                        <div class="mb-3">
-                          <label for="edit_item_status" class="form-label">Item Status</label>
-                          <select class="form-select" id="edit_item_status" name="item_status" required>
-                            <option value="">-- select --</option>
-                            <option value="Working">Working</option>
-                            <option value="Faulty">Faulty</option>
-                            <option value="Needs Repair">Needs Repair</option>
-                            <option value="Repaired">Repaired</option>
-                            <option value="Leased">Leased</option>
-                          </select>
-                        </div>
-
-                        <!-- Item State -->
-                        <div class="mb-3">
-                          <label for="edit_item_type" class="form-label">Item State</label>
-                          <select class="form-select" id="edit_item_type" name="item_type" required>
-                            <option value="Existing">Existing</option>
-                            <option value="New">New</option>
-                          </select>
-                        </div>
-
-                        <!-- Item Image -->
-                        <div class="mb-3">
-                          <label for="item_image" class="form-label">Item Image</label>
-                          <input
-                            type="file"
-                            class="form-control"
-                            id="edit_item_image"
-                            name="item_image"
-                            accept="image/*" />
-                          <img
-                            id="edit_image_preview"
-                            src="#"
-                            alt="Image Preview"
-                            class="img-fluid mt-2"
-                            style="display: none; max-width: 100%" />
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="updateItem">Update Item</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-
-
-
-
-          <div class="panel-body">
-            <table
-              id="itemTable"
-              class="display table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Image</th>
-                  <th>Category</th>
-                  <th>Brand</th>
-                  <th>Description</th>
-                  <th>Category</th>
-                  <th>Serial Number</th>
-                  <th>Status</th>
-                  <th>Stock Location</th>
-                  <th>Created Date</th>
-                  <th>Item Type</th>
-                  <th>Qr Code</th>
-                  <th>Item Type</th>
-                </tr>
-              </thead>
-              <tbody id="itemList">
-                <!-- Table rows will be inserted here -->
-              </tbody>
-            </table>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <a
-    href="javascript:;"
-    class="btn btn-icon btn-circle btn-theme btn-scroll-to-top"
-    data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
-  </div>
+    <!-- Add Brand Modal -->
+    <div class="modal fade" id="brandModal" tabindex="-1" aria-labelledby="brandModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #20425f">
+            <h4 class="modal-title text-white" id="itemModalLabel">ADD ITEM</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="itemForm" enctype="multipart/form-data">
+              <!-- Hidden Input for Item ID -->
+              <input type="hidden" id="item_id" name="item_id" />
+
+              <!-- Grid System for Two Columns -->
+              <div class="row">
+                <!-- Column 1 -->
+                <div class="col-md-12">
+                  <div class="mb-3">
+                    <label for="brand_name" class="form-label">Brand Name</label>
+                    <input type="text" class="form-control" id="brand_name" name="brand_name" required />
+                  </div>
+                </div>
+
+                
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveBrand">Save Brand</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Add item Modal -->
+    <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #20425f">
+            <h4 class="modal-title text-white" id="itemModalLabel">ADD ITEM</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="itemForm" enctype="multipart/form-data">
+              <!-- Hidden Input for Item ID -->
+              <input type="hidden" id="item_id" name="item_id" />
+
+              <!-- Grid System for Two Columns -->
+              <div class="row">
+                <!-- Column 1 -->
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="subcategory" class="form-label">Category</label>
+                    <select class="form-select" id="subcategory" name="subcategory">
+                      <option value="">Chose a category</option>
+                      <option value="1">Laptop</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="subcategory" class="form-label">Brand</label>
+                    <select class="form-select" id="subcategory" name="subcategory">
+                      <option value="">Chose a Brand</option>
+                      <option value="1">HP</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- Column 2 -->
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="serial_number" class="form-label">Serial Number</label>
+                    <input type="text" class="form-control" id="serial_number" name="serial_number" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="item_status" class="form-label">Item Status</label>
+                    <select class="form-select" id="item_status" name="item_status" required>
+                      <option value="Working">Working</option>
+                      <option value="Faulty">Faulty</option>
+                      <option value="Needs Repair">Needs Repair</option>
+                      <option value="Repaired">Repaired</option>
+                      <option value="Leased">Leased</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveItem">Save Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Editing Items -->
+    <div class="modal fade" id="editItemModal" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #20425f">
+            <h4 class="modal-title text-white" id="editItemModalLabel">EDIT ITEM</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="editItemForm" enctype="multipart/form-data">
+              <input type="hidden" id="edit_item_id" name="item_id" />
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Item Name -->
+                  <div class="mb-3">
+                    <label for="edit_item_name" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="edit_item_name" name="item_name" required />
+                  </div>
+
+                  <!-- Item Description -->
+                  <div class="mb-3">
+                    <label for="edit_item_description" class="form-label">Item Description</label>
+                    <textarea class="form-control" id="edit_item_description" name="item_description" required></textarea>
+                  </div>
+
+                  <!-- Item Category -->
+                  <div class="mb-3">
+                    <label for="edit_item_category" class="form-label">Item Category</label>
+                    <select class="form-select" id="edit_item_category" name="item_category" required>
+                      <option value="">-- select --</option>
+                      <option value="VIDEO">VIDEO</option>
+                      <option value="IT">IT</option>
+                      <option value="SOUND">SOUND</option>
+                      <option value="SIS">SIS</option>
+                      <option value="LIGHTS">LIGHTS</option>
+                      <option value="OTHER">OTHER</option>
+                    </select>
+                  </div>
+
+                  <!-- Stock Location -->
+                  <div class="mb-3">
+                    <label for="edit_item_location" class="form-label">Stock Location</label>
+                    <select class="form-select" id="edit_stock_location" name="stock_location" required>
+                      <option value="">-- select --</option>
+                      <option value="Masoro">Masoro</option>
+                      <option value="KCC">KCC</option>
+                      <option value="BK Arena">BK Arena</option>
+                      <option value="Ndera">Ndera</option>
+                      <option value="Rugando">Rugando</option>
+                    </select>
+                  </div>
+
+                  <!-- Serial Number -->
+                  <div class="mb-3">
+                    <label for="edit_item_serial_number" class="form-label">Serial Number</label>
+                    <input type="text" class="form-control" id="edit_item_serial_number" name="serial_number" required />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <!-- Item Status -->
+                  <div class="mb-3">
+                    <label for="edit_item_status" class="form-label">Item Status</label>
+                    <select class="form-select" id="edit_item_status" name="item_status" required>
+                      <option value="">-- select --</option>
+                      <option value="Working">Working</option>
+                      <option value="Faulty">Faulty</option>
+                      <option value="Needs Repair">Needs Repair</option>
+                      <option value="Repaired">Repaired</option>
+                      <option value="Leased">Leased</option>
+                    </select>
+                  </div>
+
+                  <!-- Item State -->
+                  <div class="mb-3">
+                    <label for="edit_item_type" class="form-label">Item State</label>
+                    <select class="form-select" id="edit_item_type" name="item_type" required>
+                      <option value="Existing">Existing</option>
+                      <option value="New">New</option>
+                    </select>
+                  </div>
+
+                  <!-- Item Image -->
+                  <div class="mb-3">
+                    <label for="item_image" class="form-label">Item Image</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="edit_item_image"
+                      name="item_image"
+                      accept="image/*" />
+                    <img
+                      id="edit_image_preview"
+                      src="#"
+                      alt="Image Preview"
+                      class="img-fluid mt-2"
+                      style="display: none; max-width: 100%" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="updateItem">Update Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- End Modals -->
+
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -849,173 +634,9 @@ if ($userId) {
   <!-- Your custom scripts -->
   <script>
     $(document).ready(function() {
-      function fetchItems() {
-        $.ajax({
-          url: "get_items.php",
-          type: "GET",
-          dataType: "json",
-          success: function(response) {
-            console.log("Response received:", response); // For debugging
-
-            try {
-              if (response.status === "success") {
-                let items = response.items;
-
-                // Define category and status colors
-                const categoryBadgeColors = {
-                  VIDEO: "#10538e",
-                  IT: "#5C5470",
-                  SOUND: "#03C988",
-                  SIS: "#17a2b8",
-                  LIGHTS: "#D36B00",
-                  OTHER: "#6c757d",
-                };
-
-                const statusBadgeColors = {
-                  New: "#262A56",
-                  Working: "#42855B",
-                  Faulty: "#461111",
-                  "Needs Repair": "#C69749",
-                  Repaired: "#577BC1",
-                  Leased: "#6c757d",
-                };
-
-                // Define item type button classes based on item type
-                const itemTypeButtonClasses = {
-                  New: "btn-sm btn-success", // Green button for New
-                  Existing: "btn-sm btn-info" // Gray button for Existing
-                };
-
-                // Prepare the data for DataTables
-                let tableData = items.map(function(item) {
-                  const buttonClass = itemTypeButtonClasses[item.item_type] || "btn-outline-secondary"; // Fallback to a default class
-
-                  return {
-                    id: item.id,
-                    item_image: `<img src="uploads/${item.item_image || "3.jpg"}" alt="Image" width="40" class="img-thumbnail">`,
-                    category_name: item.category_name,
-                    brand_name: item.brand_name,
-                    item_description: item.item_description,
-                    item_category: `<span class="badge" style="background-color: ${categoryBadgeColors[item.item_category] || "#6c757d"};">${item.item_category}</span>`,
-                    serial_number: item.serial_number,
-                    item_status: `<span class="badge" style="background-color: ${statusBadgeColors[item.item_status] || "#6c757d"};">${item.item_status}</span>`,
-                    stock_location: item.stock_location,
-                    date_added: item.date_added,
-                    item_type: `<button class="btn btn-xs ${buttonClass}">${item.item_type}</button>`,
-                    qr_code_url: `<img src="${item.qr_code_url}" alt="QR Code" width="50" class="img-thumbnail">`,
-                    actions: `<button class="btn btn-primary btn-sm edit-item-btn" data-item-id="${item.id}" data-bs-toggle="modal" data-bs-target="#editItemModal">
-                                <i class="fa fa-pencil"></i></button>
-                                <button class="btn btn-success btn-sm lease-item-btn" data-item-id="${item.id}" data-item-name="${item.item_name}" data-item-category="${item.item_category}" data-bs-toggle="modal" data-bs-target="#leaseItemModal"><i class="fa fa-share"></i></button>`,
-                  };
-                });
-
-                // Update the DataTable
-                if ($.fn.DataTable.isDataTable("#itemTable")) {
-                  const table = $("#itemTable").DataTable();
-                  table.clear().rows.add(tableData).draw();
-                } else {
-                  $("#itemList").html(
-                    '<table id="itemTable" class="display table table-striped table-bordered">' +
-                    "<thead><tr><th>ID</th><th>Image</th><th>Category</th><th>Brand</th><th>Description</th><th>Category</th><th>Serial Number</th><th>Status</th><th>Stock Location</th><th>Created Date</th><th>Item Type</th><th>QR Code</th><th>Action</th></tr></thead><tbody></tbody></table>"
-                  );
-
-                  $("#itemTable").DataTable({
-                    data: tableData,
-                    columns: [{
-                        data: "id"
-                      },
-                      {
-                        data: "item_image"
-                      },
-                      {
-                        data: "category_name"
-                      },
-                      {
-                        data: "brand_name"
-                      },
-                      {
-                        data: "item_description"
-                      },
-                      {
-                        data: "item_category"
-                      },
-                      {
-                        data: "serial_number"
-                      },
-                      {
-                        data: "item_status"
-                      },
-                      {
-                        data: "stock_location"
-                      },
-                      {
-                        data: "date_added"
-                      },
-                      {
-                        data: "item_type"
-                      },
-                      {
-                        data: "qr_code_url"
-                      },
-                      {
-                        data: "actions"
-                      },
-                    ],
-                    responsive: true,
-                    paging: true,
-                    searching: true,
-                    info: true,
-                    dom: '<"top"lf>rt<"bottom"ip><"clear">',
-                    buttons: ["copy", "excel", "pdf", "print"],
-                    lengthMenu: [
-                      [5, 10, 20, -1],
-                      [5, 10, 20, "All"]
-                    ],
-                    pageLength: 5,
-                  });
-                }
-
-                // Update the equipment count
-                const table = $("#itemTable").DataTable();
-
-                function updateEquipmentCount() {
-                  const equipmentCount = table.rows({
-                    filter: 'applied'
-                  }).count();
-                  $(".equipments").text(equipmentCount);
-                }
-
-                // Update count on table draw event (when page or filter changes)
-                table.on("draw", updateEquipmentCount);
-
-                // Update count on table draw event (when page or filter changes)
-                table.on("draw", updateEquipmentCount);
-
-                // Initial count update
-                updateEquipmentCount();
-              } else {
-                Swal.fire({
-                  icon: "error",
-                  title: "Error",
-                  text: "Failed to load items. Please try again later.",
-                  timer: 500,
-                  showConfirmButton: false,
-                });
-              }
-            } catch (e) {
-              console.error("Error processing the response:", e);
-              $("#itemList").html("<p>An error occurred while loading the items.</p>");
-            }
-          },
-          error: function(xhr, status, error) {
-            console.error("Error fetching items:", error);
-            $("#itemList").html("<p>Error fetching items. Please try again later.</p>");
-          },
-        });
-      }
-
+      
+      fetchCategories();
       fetchItems();
-
 
 
       // Function to preview the image
@@ -1298,7 +919,321 @@ if ($userId) {
         });
       });
 
+      function fetchCategories() {
+        console.log('Fetching categories');
+          $.ajax({
+              url: './backend/api.php', // Adjust the path to your API file
+              type: 'POST', // Sending POST request
+              dataType: 'json', // Expecting a JSON response
+              contentType: 'application/json', // Inform the server about the data type
+              data: JSON.stringify({ action: 'getCategories' }), // The action to invoke getCategories
+              success: function(response) {
+                  if (response.length > 0) {
+                      const tableBody = $("#categoryTableBody");
+                      tableBody.empty(); // Clear existing table rows
+
+                      // Loop through categories and create table rows
+                      response.forEach(category => {
+                          const row = `
+                              <tr>
+                                  <td>${category.category_id}</td>
+                                  <td>${category.name}</td>
+                                  <td>${category.Description || "N/A"}</td>
+                                  <td>${category.tag || "N/A"}</td>
+                              </tr>
+                          `;
+                          tableBody.append(row);
+                      });
+
+                      // Initialize or refresh DataTable
+                      if (!$.fn.DataTable.isDataTable("#categoryTable")) {
+                          $("#categoryTable").DataTable({
+                              responsive: true,
+                              paging: true,
+                              searching: true,
+                              info: true,
+                              lengthMenu: [
+                                  [5, 10, 20, -1],
+                                  [5, 10, 20, "All"]
+                              ],
+                              pageLength: 5
+                          });
+                      } else {
+                          $("#categoryTable").DataTable().clear().destroy();
+                          $("#categoryTable").DataTable();
+                      }
+                  } else {
+                      Swal.fire({
+                          icon: "info",
+                          title: "No Categories",
+                          text: "No categories were found.",
+                      });
+                  }
+              },
+              error: function(xhr, status, error) {
+                  console.error("Error fetching categories:", error);
+                  Swal.fire({
+                      icon: "error",
+                      title: "Error",
+                      text: "An error occurred while fetching categories.",
+                  });
+              }
+          });
+      }
+
+      function fetchItems() {
+        $.ajax({
+          url: "get_items.php",
+          type: "GET",
+          dataType: "json",
+          success: function(response) {
+            console.log("Response received:", response); // For debugging
+
+            try {
+              if (response.status === "success") {
+                let items = response.items;
+
+                // Define category and status colors
+                const categoryBadgeColors = {
+                  VIDEO: "#10538e",
+                  IT: "#5C5470",
+                  SOUND: "#03C988",
+                  SIS: "#17a2b8",
+                  LIGHTS: "#D36B00",
+                  OTHER: "#6c757d",
+                };
+
+                const statusBadgeColors = {
+                  New: "#262A56",
+                  Working: "#42855B",
+                  Faulty: "#461111",
+                  "Needs Repair": "#C69749",
+                  Repaired: "#577BC1",
+                  Leased: "#6c757d",
+                };
+
+                // Define item type button classes based on item type
+                const itemTypeButtonClasses = {
+                  New: "btn-sm btn-success", // Green button for New
+                  Existing: "btn-sm btn-info" // Gray button for Existing
+                };
+
+                // Prepare the data for DataTables
+                let tableData = items.map(function(item) {
+                  const buttonClass = itemTypeButtonClasses[item.item_type] || "btn-outline-secondary"; // Fallback to a default class
+
+                  return {
+                    id: item.id,
+                    item_image: `<img src="uploads/${item.item_image || "3.jpg"}" alt="Image" width="40" class="img-thumbnail">`,
+                    category_name: item.category_name,
+                    brand_name: item.brand_name,
+                    item_description: item.item_description,
+                    item_category: `<span class="badge badge-pill badge-secondary" style="background-color: ${categoryBadgeColors[item.item_category] || "#6c757d"};">${item.item_category}</span>`,
+                    serial_number: item.serial_number,
+                    item_status: `<span class="badge badge-pill badge-secondary" style="background-color: ${statusBadgeColors[item.item_status] || "#6c757d"};">${item.item_status}</span>`,
+                    stock_location: item.stock_location,
+                    date_added: item.date_added,
+                    item_type: `<button class="btn btn-xs ${buttonClass}">${item.item_type}</button>`,
+                    qr_code_url: `<img src="${item.qr_code_url}" alt="QR Code" width="50" class="img-thumbnail">`,
+                    actions: `<button class="btn btn-primary btn-xs btn-icon" data-item-id="${item.id}" data-bs-toggle="modal" data-bs-target="#editItemModal">
+                                <i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-danger btn-xs btn-icon lease-item-btn" data-item-id="${item.id}" data-item-name="${item.item_name}" data-item-category="${item.item_category}" data-bs-toggle="modal" data-bs-target="#leaseItemModal"><i class="fa fa-trash"></i></button>`,
+                  };
+                });
+
+                // Update the DataTable
+                if ($.fn.DataTable.isDataTable("#itemTable")) {
+                  const table = $("#itemTable").DataTable();
+                  table.clear().rows.add(tableData).draw();
+                } else {
+                  $("#itemList").html(
+                      `<table id="itemTable" class="display table table-striped table-bordered">
+                          <thead>
+                            <tr>
+                              <th>ID</th>
+                              <th>Category</th>
+                              <th>Brand</th>
+                              <th>Description</th>
+                              <th>Serial Number</th>
+                              <th>Status</th>
+                              <th>Stock</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody></tbody>
+                      </table>`
+                  );
+
+                  $("#itemTable").DataTable({
+                    data: tableData,
+                    columns: [{
+                        data: "id"
+                      },
+                      {
+                        data: "category_name"
+                      },
+                      {
+                        data: "brand_name"
+                      },
+                      {
+                        data: "item_description"
+                      },
+                      {
+                        data: "serial_number"
+                      },
+                      {
+                        data: "item_status"
+                      },
+                      {
+                        data: "stock_location"
+                      },
+                      {
+                        data: "actions"
+                      },
+                    ],
+                    responsive: true,
+                    paging: true,
+                    searching: true,
+                    info: true,
+                    dom: '<"top"lf>rt<"bottom"ip><"clear">',
+                    buttons: ["copy", "excel", "pdf", "print"],
+                    lengthMenu: [
+                      [5, 10, 20, -1],
+                      [5, 10, 20, "All"]
+                    ],
+                    pageLength: 5,
+                  });
+                }
+
+                // Update the equipment count
+                const table = $("#itemTable").DataTable();
+
+                function updateEquipmentCount() {
+                  const equipmentCount = table.rows({
+                    filter: 'applied'
+                  }).count();
+                  $(".equipments").text(equipmentCount);
+                }
+
+                // Update count on table draw event (when page or filter changes)
+                table.on("draw", updateEquipmentCount);
+
+                // Update count on table draw event (when page or filter changes)
+                table.on("draw", updateEquipmentCount);
+
+                // Initial count update
+                updateEquipmentCount();
+              } else {
+                Swal.fire({
+                  icon: "error",
+                  title: "Error",
+                  text: "Failed to load items. Please try again later.",
+                  timer: 500,
+                  showConfirmButton: false,
+                });
+              }
+            } catch (e) {
+              console.error("Error processing the response:", e);
+              $("#itemList").html("<p>An error occurred while loading the items.</p>");
+            }
+          },
+          error: function(xhr, status, error) {
+            console.error("Error fetching items:", error);
+            $("#itemList").html("<p>Error fetching items. Please try again later.</p>");
+          },
+        });
+      }
+
+// // Call fetchCategories on page load
+// $(document).ready(function() {
+    
+// });
+
     });
+
+    function addACategory() {
+      const form = document.getElementById('categoryForm');
+      if (form.checkValidity()) {
+          const formData = new FormData(form);
+
+          // Convert FormData to a plain object
+          const formDataObject = {};
+          formData.forEach((value, key) => {
+              formDataObject[key] = value;
+          });
+
+          // Add the action field
+          formDataObject.action = "addCategory";
+
+          // Send as JSON
+          fetch('./backend/api.php', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json', // Indicate that you're sending JSON
+              },
+              body: JSON.stringify(formDataObject), // Convert to JSON string
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.status === 'success') {
+                  // Show SweetAlert2 success pop-up with progress bar
+                  Swal.fire({
+                      icon: "success",
+                      html: `Category added successfully!`,
+                      timer: 3000,
+                      showConfirmButton: false,
+                      timerProgressBar: true,
+                      didOpen: () => {
+                          Swal.showLoading(); // Show progress bar during the countdown
+
+                          // Progress bar animation
+                          const progressBar = Swal.getHtmlContainer().querySelector('.swal2-timer-progress-bar');
+                          let width = 0;
+                          const interval = setInterval(() => {
+                              width += 1; // Increase width by 1% every 30ms
+                              progressBar.style.width = width + '%';
+                              if (width >= 100) {
+                                  clearInterval(interval); // Stop when progress is complete
+                              }
+                          }, 30);
+                      },
+                      willClose: () => {
+                          // Clear the modal form
+                          form.reset();
+                          $('#itemModal').modal('hide');
+
+                          // Refresh the item list after the timer
+                          fetchItems();
+                      }
+                  });
+
+                  const tableBody = $("#categoryTableBody");
+                  const categories = data.data;
+
+                  categories.forEach(category => {
+                      const row = `
+                          <tr>
+                              <td>${category.name}</td>
+                              <td>${category.Description || "N/A"}</td>
+                              <td>${category.tag || "N/A"}</td>
+                          </tr>
+                      `;
+                      tableBody.append(row);
+                  });
+              } else {
+                  Swal.fire('Error!', data.message || 'Failed to add category.', 'error');
+              }
+          })
+          .catch(error => {
+              console.error('Error:', error);
+              Swal.fire('Error!', 'An error occurred. Please try again.', 'error');
+          });
+        } else {
+            form.reportValidity(); // Show validation messages
+        }
+    }
+
+    
   </script>
 
   <!-- Vendor and Plugin Scripts -->

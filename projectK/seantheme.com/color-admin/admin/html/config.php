@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "clement";
+$password = "clement123";
 $dbname = "av_event_management";
 
 // Create connection
