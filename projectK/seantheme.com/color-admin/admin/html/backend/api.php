@@ -1,4 +1,5 @@
 <?php
+
     // Display all PHP errors (see changelog)
     error_reporting(E_ALL);
     // Turn on the display of errors
