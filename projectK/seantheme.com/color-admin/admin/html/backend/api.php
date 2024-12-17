@@ -23,7 +23,7 @@
         if ($data === null && json_last_error() !== JSON_ERROR_NONE) {
             echo "Invalid JSON data";
             exit;
-        }
+        } // test codes
 
 
         // CONNECT TO THE DB AND LOOP THE DATA
