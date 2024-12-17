@@ -12,7 +12,7 @@
 
 <?php
     // Check if the request method is POST OR GET
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Get the raw POST data
         $json = file_get_contents('php://input');
 
@@ -34,16 +34,21 @@
             $pdo_options);
 
             $results = [];
-            //GET The called route
+            // Called the Routes
             if($data['action']=='addCategory'){
                 $results = addCategory($data['category_name'],$data['category_description'],$data['category_tag'], $db);
             }elseif($data['action']=='getCategories'){
                 $results = getCategories($db);
-            }elseif($data['action']=='update_dsf'){
-                foreach ($data['data'] as $item) {
-                    $resultItem = update_dsf($item['email'], $data['nid'], $item['phone'], $db);
-                    array_push($results, $resultItem);
-                }
+            }elseif($data['action']=='addBrand'){
+                $results = addBrand($data['brand_name'],$db);
+            }elseif($data['action']=='getBrands'){
+                $results = getBrands($db);
+            }elseif($data['action']=='addItem'){
+                $results = addItem($data['categories'], $data['brands'], $data['serial_number'], $db);
+            }elseif($data['action']=='getItems'){
+                $results = getItems($db);
+            }elseif($data['action']=='generateQrs'){
+                $results = generateQrs($db);
             }
             
 
@@ -57,36 +62,130 @@
             die('Erreur: '. $e->getMessage());
         }
         
+    }elseif($_SERVER['REQUEST_METHOD'] == 'GET'){
+        $_GET['action']();
     }
 ?>
 
 <?php
 
-    function addCategory($category_name, $category_description, $category_tag, $db){
-        $statement = "
-            INSERT INTO categories (name, Description, tag) 
-            VALUES (:category_name, :category_description, :category_tag);";
-        $data = array(
-            ':category_name' => $category_name,
-            ':category_description' => $category_description,
-            ':category_tag' => $category_tag
-        );
-        try {
-            $statement = $db->prepare($statement);
-            $statement->execute($data);
+    // START CATEGORIES
+        function addCategory($category_name, $category_description, $category_tag, $db){
+            $statement = "
+                INSERT INTO categories (name, Description, tag) 
+                VALUES (:category_name, :category_description, :category_tag);";
+            $data = array(
+                ':category_name' => $category_name,
+                ':category_description' => $category_description,
+                ':category_tag' => $category_tag
+            );
+            try {
+                $statement = $db->prepare($statement);
+                $statement->execute($data);
+                return [
+                    "status" => "success",
+                    "data" => getCategories($db)
+                ];
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
+
+        function getCategories($db){
+            $statement = "SELECT * FROM categories ORDER BY category_id DESC";
+            $result = $db->query($statement);
+            return $result->fetchAll();
+        }
+    // END CATEGORIES
+
+    // START BRANDS
+        function addBrand($brand_name, $db){
+            $statement = "
+                INSERT INTO brands (name) 
+                VALUES (:brand_name);";
+            $data = array(':brand_name' => $brand_name);
+            try {
+                $statement = $db->prepare($statement);
+                $statement->execute($data);
+                return [
+                    "status" => "success",
+                    "data" => getBrands($db)
+                ];
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
+
+        function getBrands($db){
+            $statement = "SELECT * FROM brands ORDER BY brand_id DESC";
+            $result = $db->query($statement);
+            return $result->fetchAll();
+        }
+    // END BRANDS
+
+    // START ITEMS
+        function addItem($category_id, $brand_id, $serial_number, $db){
+            $statement = "
+                INSERT INTO items (category_id, brand_id, serial_number, stock_location, item_status) 
+                VALUES (:category_id, :brand_id, :serial_number, 'UNASSIGNED', 'NEW');";
+            $data = array(
+                ':category_id' => $category_id,
+                ':brand_id' => $brand_id,
+                ':serial_number' => $serial_number);
+            try {
+                $statement = $db->prepare($statement);
+                $statement->execute($data);
+                return [
+                    "status" => "success",
+                    "data" => getBrands($db)
+                ];
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
+
+        function getItems($db){
+            $statement = "SELECT id, B.name AS brand_name, C.name AS category_name, C.tag AS category_tag, C.description AS item_description, serial_number, stock_location, item_status, date_added FROM items I 
+                                        JOIN brands B ON B.brand_id = I.brand_id
+                                        JOIN categories C ON C.category_id = I.category_id 
+                                        ORDER BY I.id DESC";
+
+            $result = $db->query($statement);
+
             return [
                 "status" => "success",
-                "data" => getCategories($db)
+                "items" => $result->fetchAll()
             ];
+        }
+    // END ITEMS
+
+    // START QR CODES
+    function generateQrs() {
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+    
+        try {
+            require_once __DIR__ . '/helper/generateqrcodes.php';
+    
+            // Example usage:
+            $items = ["#123453", "#2B334", "#223L4", "#2H3L4", "#G23L4", "#1M3L4", "#1P6L4", "#971B8", "#P23K1", "#32O23P", "#723D4", "#777M1"];
+            generateQRCodePDFWithItems($items);
+    
+            // Exit after the PDF is output
+            exit;
+    
         } catch (\Throwable $th) {
-            throw $th;
+            // Output JSON response only on error
+            header('Content-Type: application/json');
+            echo json_encode([
+                "status" => "error",
+                "message" => $th->getMessage(),
+                "file" => $th->getFile(),
+                "line" => $th->getLine(),
+            ]);
+            exit;
         }
     }
-
-    function getCategories($db){
-        $statement = "SELECT * FROM categories ORDER BY category_id DESC";
-        $result = $db->query($statement);
-        return $result->fetchAll();
-    }
-
+    // END QR CODES
 ?>

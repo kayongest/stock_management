@@ -303,19 +303,24 @@
                   class="btn btn-xs text-white"
                   style="background-color: #0b6b94"
                   data-bs-toggle="modal"
-                  data-bs-target="#categoryModal">ADD A CATEGORY</a>
+                  data-bs-target="#categoryModal">CATEGORIES</a>
                 <a
                   href="#modal-dialog"
                   class="btn btn-xs text-white"
                   style="background-color: #0b6b94"
                   data-bs-toggle="modal"
-                  data-bs-target="#brandModal">ADD A BRAND</a>
+                  data-bs-target="#brandModal">BRANDS</a>
                 <a
                   href="#modal-dialog"
                   class="btn btn-xs text-white"
                   style="background-color: #0b6b94"
                   data-bs-toggle="modal"
                   data-bs-target="#itemModal">ADD AN ITEM</a>
+                <a
+                  href="./backend/api.php?action=generateQrs"
+                  class="btn btn-xs text-white"
+                  style="background-color: #0b6b94"
+                  onClick="downloadQrCodes()">DOWNLOAD QR CODES</a>
                 <a
                   href="javascript:;"
                   class="btn btn-xs btn-icon btn-success"
@@ -329,8 +334,7 @@
                 class="display table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Category</th>
+                    <th>Name</th>
                     <th>Brand</th>
                     <th>Description</th>
                     <th>Serial Number</th>
@@ -414,7 +418,7 @@
       </div>
     </div>
 
-    <!-- Add Brand Modal -->
+    <!-- Brands Modal -->
     <div class="modal fade" id="brandModal" tabindex="-1" aria-labelledby="brandModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -423,27 +427,34 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="itemForm" enctype="multipart/form-data">
-              <!-- Hidden Input for Item ID -->
-              <input type="hidden" id="item_id" name="item_id" />
-
-              <!-- Grid System for Two Columns -->
-              <div class="row">
-                <!-- Column 1 -->
-                <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-5">
+                <form id="brandForm" enctype="multipart/form-data">
                   <div class="mb-3">
                     <label for="brand_name" class="form-label">Brand Name</label>
                     <input type="text" class="form-control" id="brand_name" name="brand_name" required />
                   </div>
-                </div>
-
-                
+                  <div class="mb-3">
+                    <button type="button" class="btn btn-success" onclick="addABrand()" id="addCategory">Add A Category</button>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveBrand">Save Brand</button>
+              <div class="col-md-7">
+                <h6>Brands</h6>
+                <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                  <table class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="brandTableBody">
+                        <!-- Dynamic rows will be appended here -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -460,25 +471,20 @@
           </div>
           <div class="modal-body">
             <form id="itemForm" enctype="multipart/form-data">
-              <!-- Hidden Input for Item ID -->
-              <input type="hidden" id="item_id" name="item_id" />
-
               <!-- Grid System for Two Columns -->
               <div class="row">
                 <!-- Column 1 -->
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label for="subcategory" class="form-label">Category</label>
-                    <select class="form-select" id="subcategory" name="subcategory">
+                    <label for="categories" class="form-label">Category</label>
+                    <select class="form-select" id="categories" name="categories">
                       <option value="">Chose a category</option>
-                      <option value="1">Laptop</option>
                     </select>
                   </div>
                   <div class="mb-3">
-                    <label for="subcategory" class="form-label">Brand</label>
-                    <select class="form-select" id="subcategory" name="subcategory">
+                    <label for="brands" class="form-label">Brand</label>
+                    <select class="form-select" id="brands" name="brands">
                       <option value="">Chose a Brand</option>
-                      <option value="1">HP</option>
                     </select>
                   </div>
                 </div>
@@ -488,23 +494,13 @@
                     <label for="serial_number" class="form-label">Serial Number</label>
                     <input type="text" class="form-control" id="serial_number" name="serial_number" required />
                   </div>
-                  <div class="mb-3">
-                    <label for="item_status" class="form-label">Item Status</label>
-                    <select class="form-select" id="item_status" name="item_status" required>
-                      <option value="Working">Working</option>
-                      <option value="Faulty">Faulty</option>
-                      <option value="Needs Repair">Needs Repair</option>
-                      <option value="Repaired">Repaired</option>
-                      <option value="Leased">Leased</option>
-                    </select>
-                  </div>
                 </div>
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveItem">Save Item</button>
+            <button type="button" class="btn btn-primary" onclick="addAnItem()">Add Item</button>
           </div>
         </div>
       </div>
@@ -636,6 +632,7 @@
     $(document).ready(function() {
       
       fetchCategories();
+      fetchBrands();
       fetchItems();
 
 
@@ -918,81 +915,419 @@
           },
         });
       });
+    });
+
+    // START CATEGORIES
+      function addACategory() {
+        const form = document.getElementById('categoryForm');
+        if (form.checkValidity()) {
+            const formData = new FormData(form);
+
+            // Convert FormData to a plain object
+            const formDataObject = {};
+            formData.forEach((value, key) => {
+                formDataObject[key] = value;
+            });
+
+            // Add the action field
+            formDataObject.action = "addCategory";
+
+            // Send as JSON
+            fetch('./backend/api.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', // Indicate that you're sending JSON
+                },
+                body: JSON.stringify(formDataObject), // Convert to JSON string
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Show SweetAlert2 success pop-up with progress bar
+                    Swal.fire({
+                        icon: "success",
+                        html: `Category added successfully!`,
+                        timer: 3000,
+                        showConfirmButton: false,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading(); // Show progress bar during the countdown
+
+                            // Progress bar animation
+                            const progressBar = Swal.getHtmlContainer().querySelector('.swal2-timer-progress-bar');
+                            let width = 0;
+                            const interval = setInterval(() => {
+                                width += 1; // Increase width by 1% every 30ms
+                                progressBar.style.width = width + '%';
+                                if (width >= 100) {
+                                    clearInterval(interval); // Stop when progress is complete
+                                }
+                            }, 30);
+                        },
+                        willClose: () => {
+                            // Clear the modal form
+                            form.reset();
+                            $('#itemModal').modal('hide');
+
+                            // Refresh the item list after the timer
+                            fetchItems();
+                        }
+                    });
+
+                    const tableBody = $("#categoryTableBody");
+                    const categories = data.data;
+
+                    categories.forEach(category => {
+                        const row = `
+                            <tr>
+                                <td>${category.name}</td>
+                                <td>${category.Description || "N/A"}</td>
+                                <td>${category.tag || "N/A"}</td>
+                            </tr>
+                        `;
+                        tableBody.append(row);
+                    });
+                } else {
+                    Swal.fire('Error!', data.message || 'Failed to add category.', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire('Error!', 'An error occurred. Please try again.', 'error');
+            });
+          } else {
+              form.reportValidity(); // Show validation messages
+          }
+      }
 
       function fetchCategories() {
         console.log('Fetching categories');
-          $.ajax({
-              url: './backend/api.php', // Adjust the path to your API file
-              type: 'POST', // Sending POST request
-              dataType: 'json', // Expecting a JSON response
-              contentType: 'application/json', // Inform the server about the data type
-              data: JSON.stringify({ action: 'getCategories' }), // The action to invoke getCategories
-              success: function(response) {
-                  if (response.length > 0) {
-                      const tableBody = $("#categoryTableBody");
-                      tableBody.empty(); // Clear existing table rows
+        $.ajax({
+          url: './backend/api.php', // Adjust the path to your API file
+          type: 'POST', // Sending POST request
+          dataType: 'json', // Expecting a JSON response
+          contentType: 'application/json', // Inform the server about the data type
+          data: JSON.stringify({ action: 'getCategories' }), // The action to invoke getCategories
+          success: function(response) {
+            if (response.length > 0) {
+              const tableBody = $("#categoryTableBody");
+              tableBody.empty(); // Clear existing table rows
 
-                      // Loop through categories and create table rows
-                      response.forEach(category => {
-                          const row = `
-                              <tr>
-                                  <td>${category.category_id}</td>
-                                  <td>${category.name}</td>
-                                  <td>${category.Description || "N/A"}</td>
-                                  <td>${category.tag || "N/A"}</td>
-                              </tr>
-                          `;
-                          tableBody.append(row);
-                      });
+              updateCategoryList(response);
+              // Loop through categories and create table rows
+              response.forEach(category => {
+                const row = `
+                  <tr>
+                      <td>${category.name}</td>
+                      <td>${category.Description || "N/A"}</td>
+                      <td>${category.tag || "N/A"}</td>
+                  </tr>
+                `;
+                tableBody.append(row);
+              });
 
-                      // Initialize or refresh DataTable
-                      if (!$.fn.DataTable.isDataTable("#categoryTable")) {
-                          $("#categoryTable").DataTable({
-                              responsive: true,
-                              paging: true,
-                              searching: true,
-                              info: true,
-                              lengthMenu: [
-                                  [5, 10, 20, -1],
-                                  [5, 10, 20, "All"]
-                              ],
-                              pageLength: 5
-                          });
-                      } else {
-                          $("#categoryTable").DataTable().clear().destroy();
-                          $("#categoryTable").DataTable();
-                      }
-                  } else {
-                      Swal.fire({
-                          icon: "info",
-                          title: "No Categories",
-                          text: "No categories were found.",
-                      });
-                  }
-              },
-              error: function(xhr, status, error) {
-                  console.error("Error fetching categories:", error);
-                  Swal.fire({
-                      icon: "error",
-                      title: "Error",
-                      text: "An error occurred while fetching categories.",
-                  });
+              // Initialize or refresh DataTable
+              if (!$.fn.DataTable.isDataTable("#categoryTable")) {
+                $("#categoryTable").DataTable({
+                  responsive: true,
+                  paging: true,
+                  searching: true,
+                  info: true,
+                  lengthMenu: [
+                      [5, 10, 20, -1],
+                      [5, 10, 20, "All"]
+                  ],
+                  pageLength: 5
+                });
+              } else {
+                $("#categoryTable").DataTable().clear().destroy();
+                $("#categoryTable").DataTable();
               }
-          });
+              } 
+              else {
+                Swal.fire({
+                  icon: "info",
+                  title: "No Categories",
+                  text: "No categories were found.",
+                });
+              }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error fetching categories:", error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "An error occurred while fetching categories.",
+                });
+            }
+        });
+      }
+
+      function updateCategoryList(categoriesData) {
+        const categoriesSelect = document.getElementById("categories");
+        categoriesSelect.innerHTML = '<option value="">Choose a category</option>'; // Reset options
+
+        categoriesData.forEach(category => {
+            const option = document.createElement("option");
+            option.value = category.category_id;
+            option.textContent = category.name+' | '+category.Description;
+            categoriesSelect.appendChild(option);
+        });
+      }
+    // END CATEGORIES
+
+    // START BRANDS
+      function addABrand() {
+        const form = document.getElementById('brandForm');
+        if (form.checkValidity()) {
+            const formData = new FormData(form);
+
+            // Convert FormData to a plain object
+            const formDataObject = {};
+            formData.forEach((value, key) => {
+                formDataObject[key] = value;
+            });
+
+            // Add the action field
+            formDataObject.action = "addBrand";
+
+            // Send as JSON
+            fetch('./backend/api.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', // Indicate that you're sending JSON
+                },
+                body: JSON.stringify(formDataObject), // Convert to JSON string
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Show SweetAlert2 success pop-up with progress bar
+                    Swal.fire({
+                        icon: "success",
+                        html: `Brand added successfully!`,
+                        timer: 3000,
+                        showConfirmButton: false,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading(); // Show progress bar during the countdown
+
+                            // Progress bar animation
+                            const progressBar = Swal.getHtmlContainer().querySelector('.swal2-timer-progress-bar');
+                            let width = 0;
+                            const interval = setInterval(() => {
+                                width += 1; // Increase width by 1% every 30ms
+                                progressBar.style.width = width + '%';
+                                if (width >= 100) {
+                                    clearInterval(interval); // Stop when progress is complete
+                                }
+                            }, 30);
+                        },
+                        willClose: () => {
+                            // Clear the modal form
+                            form.reset();
+                            $('#itemModal').modal('hide');
+
+                            // Refresh the item list after the timer
+                            fetchBrands();
+                        }
+                    });
+
+                    const tableBody = $("#brandTableBody");
+                    const brands = data.data;
+
+                    brands.forEach(brand => {
+                        const row = `
+                            <tr>
+                                <td>${brand.name}</td>
+                            </tr>
+                        `;
+                        tableBody.append(row);
+                    });
+                } else {
+                    Swal.fire('Error!', data.message || 'Failed to add brand.', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire('Error!', 'An error occurred. Please try again.'+error, 'error');
+            });
+          } else {
+              form.reportValidity(); // Show validation messages
+          }
+      }
+
+      function fetchBrands() {
+        console.log('Fetching brands...');
+        $.ajax({
+          url: './backend/api.php', // Adjust the path to your API file
+          type: 'POST', // Sending POST request
+          dataType: 'json', // Expecting a JSON response
+          contentType: 'application/json', // Inform the server about the data type
+          data: JSON.stringify({ action: 'getBrands' }), // The action to invoke getCategories
+          success: function(response) {
+            if (response.length > 0) {
+              const tableBody = $("#brandTableBody");
+              tableBody.empty(); // Clear existing table rows
+
+              updateBrandList(response);
+              // Loop through categories and create table rows
+              response.forEach(brand => {
+                const row = `
+                  <tr>
+                      <td>${brand.name}</td>
+                  </tr>
+                `;
+                tableBody.append(row);
+              });
+
+              // Initialize or refresh DataTable
+              if (!$.fn.DataTable.isDataTable("#brandTable")) {
+                $("#brandTable").DataTable({
+                  responsive: true,
+                  paging: true,
+                  searching: true,
+                  info: true,
+                  lengthMenu: [
+                      [5, 10, 20, -1],
+                      [5, 10, 20, "All"]
+                  ],
+                  pageLength: 5
+                });
+              } else {
+                $("#brandTable").DataTable().clear().destroy();
+                $("#brandTable").DataTable();
+              }
+              } 
+              else {
+                Swal.fire({
+                  icon: "info",
+                  title: "No Brands",
+                  text: "No brands were found.",
+                });
+              }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error fetching brands:", error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "An error occurred while fetching brands.",
+                });
+            }
+        });
+      }
+
+      function updateBrandList(brandsData) {
+        const brandsSelect = document.getElementById("brands");
+        brandsSelect.innerHTML = '<option value="">Choose a Brans</option>'; // Reset options
+
+        brandsData.forEach(brand => {
+            const option = document.createElement("option");
+            option.value = brand.brand_id;
+            option.textContent = brand.name;
+            brandsSelect.appendChild(option);
+        });
+      }
+    // END BRANDS
+
+    // START ITEMS
+      function addAnItem() {
+        const form = document.getElementById('itemForm');
+        console.log(form.checkValidity())
+        if (form.checkValidity()) {
+            const formData = new FormData(form);
+
+            // Convert FormData to a plain object
+            const formDataObject = {};
+            formData.forEach((value, key) => {
+                formDataObject[key] = value;
+            });
+
+            // Add the action field
+            formDataObject.action = "addItem";
+
+            console.log({"addAnItem":formDataObject});
+            // Send as JSON
+            fetch('./backend/api.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', // Indicate that you're sending JSON
+                },
+                body: JSON.stringify(formDataObject), // Convert to JSON string
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Show SweetAlert2 success pop-up with progress bar
+                    Swal.fire({
+                        icon: "success",
+                        html: `Category added successfully!`,
+                        timer: 3000,
+                        showConfirmButton: false,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading(); // Show progress bar during the countdown
+
+                            // Progress bar animation
+                            const progressBar = Swal.getHtmlContainer().querySelector('.swal2-timer-progress-bar');
+                            let width = 0;
+                            const interval = setInterval(() => {
+                                width += 1; // Increase width by 1% every 30ms
+                                progressBar.style.width = width + '%';
+                                if (width >= 100) {
+                                    clearInterval(interval); // Stop when progress is complete
+                                }
+                            }, 30);
+                        },
+                        willClose: () => {
+                            // Clear the modal form
+                            form.reset();
+                            $('#itemModal').modal('hide');
+
+                            // Refresh the item list after the timer
+                            fetchItems();
+                        }
+                    });
+
+                    const tableBody = $("#categoryTableBody");
+                    const categories = data.data;
+
+                    categories.forEach(category => {
+                        const row = `
+                            <tr>
+                                <td>${category.name}</td>
+                                <td>${category.Description || "N/A"}</td>
+                                <td>${category.tag || "N/A"}</td>
+                            </tr>
+                        `;
+                        tableBody.append(row);
+                    });
+                } else {
+                    Swal.fire('Error!', data.message || 'Failed to add category.', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire('Error!', 'An error occurred. Please try again.', 'error');
+            });
+          } else {
+              form.reportValidity(); // Show validation messages
+          }
       }
 
       function fetchItems() {
+        
         $.ajax({
-          url: "get_items.php",
-          type: "GET",
-          dataType: "json",
+          url: './backend/api.php', // Adjust the path to your API file
+          type: 'POST', // Sending POST request
+          dataType: 'json', // Expecting a JSON response
+          contentType: 'application/json', // Inform the server about the data type
+          data: JSON.stringify({ action: 'getItems' }), // The action to invoke getCategories
           success: function(response) {
-            console.log("Response received:", response); // For debugging
-
             try {
               if (response.status === "success") {
                 let items = response.items;
-
                 // Define category and status colors
                 const categoryBadgeColors = {
                   VIDEO: "#10538e",
@@ -1017,27 +1352,19 @@
                   New: "btn-sm btn-success", // Green button for New
                   Existing: "btn-sm btn-info" // Gray button for Existing
                 };
-
                 // Prepare the data for DataTables
                 let tableData = items.map(function(item) {
                   const buttonClass = itemTypeButtonClasses[item.item_type] || "btn-outline-secondary"; // Fallback to a default class
-
                   return {
-                    id: item.id,
-                    item_image: `<img src="uploads/${item.item_image || "3.jpg"}" alt="Image" width="40" class="img-thumbnail">`,
                     category_name: item.category_name,
                     brand_name: item.brand_name,
                     item_description: item.item_description,
-                    item_category: `<span class="badge badge-pill badge-secondary" style="background-color: ${categoryBadgeColors[item.item_category] || "#6c757d"};">${item.item_category}</span>`,
                     serial_number: item.serial_number,
                     item_status: `<span class="badge badge-pill badge-secondary" style="background-color: ${statusBadgeColors[item.item_status] || "#6c757d"};">${item.item_status}</span>`,
                     stock_location: item.stock_location,
-                    date_added: item.date_added,
-                    item_type: `<button class="btn btn-xs ${buttonClass}">${item.item_type}</button>`,
-                    qr_code_url: `<img src="${item.qr_code_url}" alt="QR Code" width="50" class="img-thumbnail">`,
                     actions: `<button class="btn btn-primary btn-xs btn-icon" data-item-id="${item.id}" data-bs-toggle="modal" data-bs-target="#editItemModal">
                                 <i class="fa fa-pencil"></i></button>
-                                <button class="btn btn-danger btn-xs btn-icon lease-item-btn" data-item-id="${item.id}" data-item-name="${item.item_name}" data-item-category="${item.item_category}" data-bs-toggle="modal" data-bs-target="#leaseItemModal"><i class="fa fa-trash"></i></button>`,
+                                <button class="btn btn-danger btn-xs btn-icon lease-item-btn" data-item-id="${item.id}" data-item-name="${item.item_name}" data-item-category="${item.category_tag}" data-bs-toggle="modal" data-bs-target="#leaseItemModal"><i class="fa fa-trash"></i></button>`,
                   };
                 });
 
@@ -1050,8 +1377,7 @@
                       `<table id="itemTable" class="display table table-striped table-bordered">
                           <thead>
                             <tr>
-                              <th>ID</th>
-                              <th>Category</th>
+                              <th>Name</th>
                               <th>Brand</th>
                               <th>Description</th>
                               <th>Serial Number</th>
@@ -1066,9 +1392,7 @@
 
                   $("#itemTable").DataTable({
                     data: tableData,
-                    columns: [{
-                        data: "id"
-                      },
+                    columns: [
                       {
                         data: "category_name"
                       },
@@ -1143,97 +1467,8 @@
           },
         });
       }
-
-// // Call fetchCategories on page load
-// $(document).ready(function() {
-    
-// });
-
-    });
-
-    function addACategory() {
-      const form = document.getElementById('categoryForm');
-      if (form.checkValidity()) {
-          const formData = new FormData(form);
-
-          // Convert FormData to a plain object
-          const formDataObject = {};
-          formData.forEach((value, key) => {
-              formDataObject[key] = value;
-          });
-
-          // Add the action field
-          formDataObject.action = "addCategory";
-
-          // Send as JSON
-          fetch('./backend/api.php', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json', // Indicate that you're sending JSON
-              },
-              body: JSON.stringify(formDataObject), // Convert to JSON string
-          })
-          .then(response => response.json())
-          .then(data => {
-              if (data.status === 'success') {
-                  // Show SweetAlert2 success pop-up with progress bar
-                  Swal.fire({
-                      icon: "success",
-                      html: `Category added successfully!`,
-                      timer: 3000,
-                      showConfirmButton: false,
-                      timerProgressBar: true,
-                      didOpen: () => {
-                          Swal.showLoading(); // Show progress bar during the countdown
-
-                          // Progress bar animation
-                          const progressBar = Swal.getHtmlContainer().querySelector('.swal2-timer-progress-bar');
-                          let width = 0;
-                          const interval = setInterval(() => {
-                              width += 1; // Increase width by 1% every 30ms
-                              progressBar.style.width = width + '%';
-                              if (width >= 100) {
-                                  clearInterval(interval); // Stop when progress is complete
-                              }
-                          }, 30);
-                      },
-                      willClose: () => {
-                          // Clear the modal form
-                          form.reset();
-                          $('#itemModal').modal('hide');
-
-                          // Refresh the item list after the timer
-                          fetchItems();
-                      }
-                  });
-
-                  const tableBody = $("#categoryTableBody");
-                  const categories = data.data;
-
-                  categories.forEach(category => {
-                      const row = `
-                          <tr>
-                              <td>${category.name}</td>
-                              <td>${category.Description || "N/A"}</td>
-                              <td>${category.tag || "N/A"}</td>
-                          </tr>
-                      `;
-                      tableBody.append(row);
-                  });
-              } else {
-                  Swal.fire('Error!', data.message || 'Failed to add category.', 'error');
-              }
-          })
-          .catch(error => {
-              console.error('Error:', error);
-              Swal.fire('Error!', 'An error occurred. Please try again.', 'error');
-          });
-        } else {
-            form.reportValidity(); // Show validation messages
-        }
-    }
-
-    
+    // END ITEMS
+  
   </script>
 
   <!-- Vendor and Plugin Scripts -->

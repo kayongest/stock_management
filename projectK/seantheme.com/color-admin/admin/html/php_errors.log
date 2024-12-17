@@ -2368,3 +2368,16 @@ Stack trace:
 
 )
 
+[16-Dec-2024 21:32:10 UTC] Array
+(
+    [item_id] => 
+    [categories] => 1
+    [brands] => undefined
+    [serial_number] => #89797
+    [item_status] => Working
+)
+
+[16-Dec-2024 21:32:10 UTC] Array
+(
+)
+

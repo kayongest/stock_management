@@ -21,7 +21,7 @@ try {
     $start_time = microtime(true); // Start time for query execution
 
     // Prepared statement to fetch items
-    $stmt = $conn->prepare("SELECT id, B.name AS brand_name, C.name AS category_name, item_description, item_image, item_category, serial_number, qr_code_url, stock_location, item_status, item_type, date_added FROM items I 
+    $stmt = $conn->prepare("SELECT id, B.name AS brand_name, C.name AS category_name, C.description AS item_description, item_category, serial_number, qr_code_url, stock_location, item_status, item_type, date_added FROM items I 
                                         JOIN brands B ON B.brand_id = I.brand_id
                                         JOIN categories C ON C.category_id = I.category_id");
     
