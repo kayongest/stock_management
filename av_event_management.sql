@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 15, 2024 at 08:44 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Host: localhost:8889
+-- Generation Time: Dec 17, 2024 at 12:59 PM
+-- Server version: 8.0.35
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `academia` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `phone` varchar(100) NOT NULL
+  `id` int NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -41,11 +41,11 @@ CREATE TABLE `academia` (
 --
 
 CREATE TABLE `boards` (
-  `board_id` int(11) NOT NULL,
-  `board_name` varchar(100) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `board_id` int NOT NULL,
+  `board_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -55,18 +55,25 @@ CREATE TABLE `boards` (
 --
 
 CREATE TABLE `brands` (
-  `brand_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `brand_id` int NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `brands`
 --
 
-INSERT INTO `brands` (`brand_id`, `category_id`, `name`) VALUES
-(1, 1, 'HP'),
-(2, 1, 'LENOVO');
+INSERT INTO `brands` (`brand_id`, `name`) VALUES
+(1, 'HP'),
+(2, 'LENOVO'),
+(3, 'BENQ'),
+(4, 'SAMSUNG'),
+(5, 'LG'),
+(6, 'TESTING'),
+(7, 'WORKED'),
+(8, 'HOW ABOUT NOW'),
+(9, 'THEN THIS'),
+(10, 'Apple');
 
 -- --------------------------------------------------------
 
@@ -75,13 +82,13 @@ INSERT INTO `brands` (`brand_id`, `category_id`, `name`) VALUES
 --
 
 CREATE TABLE `cards` (
-  `card_id` int(11) NOT NULL,
-  `list_id` int(11) NOT NULL,
-  `card_title` varchar(100) NOT NULL,
-  `card_description` text DEFAULT NULL,
-  `position` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `card_id` int NOT NULL,
+  `list_id` int NOT NULL,
+  `card_title` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `card_description` text COLLATE utf8mb4_general_ci,
+  `position` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -91,16 +98,20 @@ CREATE TABLE `cards` (
 --
 
 CREATE TABLE `categories` (
-  `category_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `category_id` int NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `Description` text COLLATE utf8mb4_general_ci,
+  `tag` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`category_id`, `name`) VALUES
-(1, 'LAPTOP');
+INSERT INTO `categories` (`category_id`, `name`, `Description`, `tag`) VALUES
+(1, 'Laptop', 'HDD: 500GB, RAM: 8GB, Screen: 13Inch', 'OTHER'),
+(2, 'PROJECTOR', '1800HD', 'VIDEO'),
+(3, 'KEYBOARD', 'APPLE MAGIC KEYS 2024', 'OTHER');
 
 -- --------------------------------------------------------
 
@@ -109,9 +120,9 @@ INSERT INTO `categories` (`category_id`, `name`) VALUES
 --
 
 CREATE TABLE `colors` (
-  `id` int(11) NOT NULL,
-  `category` varchar(50) NOT NULL,
-  `label_class` varchar(50) NOT NULL
+  `id` int NOT NULL,
+  `category` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `label_class` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -121,16 +132,16 @@ CREATE TABLE `colors` (
 --
 
 CREATE TABLE `events` (
-  `event_id` int(11) NOT NULL,
-  `event_name` varchar(100) NOT NULL,
+  `event_id` int NOT NULL,
+  `event_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `event_date` date NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `event_location` varchar(255) DEFAULT NULL,
-  `event_description` text NOT NULL,
-  `event_type` enum('Anniversary','Conference','Forum','Fashion_Event','Webinar','Hybrid','Concert','Exhibition','Sport_Event','Training_Session','Other') NOT NULL,
-  `event_status` enum('Active','Ongoing','Completed','Pending','Waived') NOT NULL,
-  `event_image` varchar(255) DEFAULT NULL
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `event_location` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `event_description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `event_type` enum('Anniversary','Conference','Forum','Fashion_Event','Webinar','Hybrid','Concert','Exhibition','Sport_Event','Training_Session','Other') COLLATE utf8mb4_general_ci NOT NULL,
+  `event_status` enum('Active','Ongoing','Completed','Pending','Waived') COLLATE utf8mb4_general_ci NOT NULL,
+  `event_image` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -149,34 +160,25 @@ INSERT INTO `events` (`event_id`, `event_name`, `event_date`, `created_at`, `upd
 --
 
 CREATE TABLE `items` (
-  `id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `brand_id` int(11) NOT NULL,
-  `item_name` varchar(255) NOT NULL,
-  `item_description` text DEFAULT NULL,
-  `item_image` varchar(255) DEFAULT NULL,
-  `item_category` enum('VIDEO','IT','SOUND','SIS','LIGHTS','OTHER') DEFAULT NULL,
-  `serial_number` varchar(100) NOT NULL,
-  `stock_location` enum('Masoro','KCC','BK Arena','Ndera','Rugando') DEFAULT NULL,
-  `item_status` enum('New','Working','Faulty','Needs Repair','Repaired','Leased') DEFAULT NULL,
-  `date_added` TIMESTAMP NOT NULL DEFAULT current_timestamp(),
+  `id` int NOT NULL,
+  `item_code` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `category_id` int NOT NULL,
+  `brand_id` int NOT NULL,
+  `serial_number` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `stock_location` enum('UNASSIGNED','Masoro','KCC','BK Arena','Ndera','Rugando') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `item_status` enum('New','Working','Faulty','Needs Repair','Repaired','Leased') COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` date DEFAULT NULL,
-  `item_type` enum('New','Existing') NOT NULL DEFAULT 'Existing',
-  `qr_code_url` varchar(255) DEFAULT NULL
+  `item_type` enum('New','Existing') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'Existing',
+  `qr_code_url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `category_id`, `brand_id`, `item_name`, `item_description`, `item_image`, `item_category`, `serial_number`, `stock_location`, `item_status`, `date_added`, `update_date`, `item_type`, `qr_code_url`) VALUES
-(1, 1, 1, 'Clicker', 'clickerDesc', 'bg.jpg', 'VIDEO', '#001', 'KCC', 'Working', '2024-11-26', NULL, 'New', 'https://quickchart.io/qr?text=%7B%22item_id%22%3A1%2C%22item_name%22%3A%22Clicker%22%2C%22item_description%22%3A%22clickerDesc%22%7D'),
-(2, 0, 0, '55\' Inch ', 'Samsung LCD', '55\' inch Samsung.jpeg', 'VIDEO', '054N3K6M500129P', 'Masoro', 'Working', '2024-12-15', NULL, 'New', 'https://quickchart.io/qr?text=%7B%22item_id%22%3A2%2C%22item_name%22%3A%2255%27+Inch+%22%2C%22item_description%22%3A%22Samsung+LCD%22%7D'),
-(3, 0, 0, 'sdfdsf', 'sdfsd', 'bg.jpg', 'VIDEO', 'sdfsdf', 'BK Arena', 'Working', '2024-12-15', NULL, 'Existing', 'https://quickchart.io/qr?text=%7B%22item_id%22%3A3%2C%22item_name%22%3A%22sdfdsf%22%2C%22item_description%22%3A%22sdfsd%22%7D'),
-(6, 0, 0, 'test', 'desc', 'bgCode.jpg', 'IT', 'werwqe', 'KCC', 'Working', '2024-12-15', NULL, 'New', 'https://quickchart.io/qr?text=%7B%22item_id%22%3A6%2C%22item_name%22%3A%22test%22%2C%22item_description%22%3A%22desc%22%7D'),
-(7, 0, 1, '', NULL, NULL, NULL, '#002', NULL, NULL, '2024-12-15', NULL, 'Existing', NULL),
-(8, 0, 1, 'testclicker', 'this is a test', 'bg.jpeg', 'IT', '#003', 'Masoro', 'Working', '2024-12-15', NULL, 'Existing', 'https://quickchart.io/qr?text=%7B%22item_id%22%3A8%2C%22item_name%22%3A%22testclicker%22%2C%22item_description%22%3A%22this+is+a+test%22%7D'),
-(9, 1, 1, 'Test item2', 'this is a test2', '55\' inch Samsung.jpeg', 'SOUND', '#004', 'Masoro', 'Working', '2024-12-15', NULL, 'Existing', 'https://quickchart.io/qr?text=%7B%22item_id%22%3A9%2C%22item_name%22%3A%22Test+item2%22%2C%22item_description%22%3A%22this+is+a+test2%22%7D');
+INSERT INTO `items` (`id`, `item_code`, `category_id`, `brand_id`, `serial_number`, `stock_location`, `item_status`, `date_added`, `update_date`, `item_type`, `qr_code_url`) VALUES
+(1, '#0UHVOQ', 3, 10, '#123wew', 'UNASSIGNED', 'New', '2024-12-17 12:43:32', NULL, 'Existing', NULL);
 
 -- --------------------------------------------------------
 
@@ -185,17 +187,17 @@ INSERT INTO `items` (`id`, `category_id`, `brand_id`, `item_name`, `item_descrip
 --
 
 CREATE TABLE `lease` (
-  `lease_id` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL,
-  `item_name` varchar(255) NOT NULL,
-  `item_category` enum('VIDEO','IT','SOUND','SIS','LIGHTS','OTHER') NOT NULL,
-  `stock_location` enum('Masoro','KCC','BK Arena','Ndera','Rugando') NOT NULL,
-  `lease_venue` varchar(255) NOT NULL,
-  `lessee_name` varchar(255) NOT NULL,
+  `lease_id` int NOT NULL,
+  `item_id` int NOT NULL,
+  `item_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `item_category` enum('VIDEO','IT','SOUND','SIS','LIGHTS','OTHER') COLLATE utf8mb4_general_ci NOT NULL,
+  `stock_location` enum('Masoro','KCC','BK Arena','Ndera','Rugando') COLLATE utf8mb4_general_ci NOT NULL,
+  `lease_venue` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `lessee_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `lease_start_date` date NOT NULL,
   `lease_end_date` date NOT NULL,
-  `comments` text DEFAULT NULL,
-  `requested_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `comments` text COLLATE utf8mb4_general_ci,
+  `requested_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `return_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -217,12 +219,12 @@ INSERT INTO `lease` (`lease_id`, `item_id`, `item_name`, `item_category`, `stock
 --
 
 CREATE TABLE `lists` (
-  `list_id` int(11) NOT NULL,
-  `board_id` int(11) NOT NULL,
-  `list_name` varchar(100) NOT NULL,
-  `position` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `list_id` int NOT NULL,
+  `board_id` int NOT NULL,
+  `list_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `position` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -232,15 +234,15 @@ CREATE TABLE `lists` (
 --
 
 CREATE TABLE `stock` (
-  `id` int(11) NOT NULL,
-  `stock_name` varchar(255) NOT NULL,
-  `stock_category` enum('VIDEO','IT','SOUND','SIS','LIGHTS','OTHER') NOT NULL,
-  `stock_location` enum('Masoro','KCC','BK Arena','Ndera','Rugando') NOT NULL,
-  `serial_number` varchar(255) NOT NULL,
-  `stock_status` varchar(255) NOT NULL,
-  `stock_image` varchar(255) DEFAULT NULL,
-  `date_added` timestamp NOT NULL DEFAULT current_timestamp(),
-  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `id` int NOT NULL,
+  `stock_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `stock_category` enum('VIDEO','IT','SOUND','SIS','LIGHTS','OTHER') COLLATE utf8mb4_general_ci NOT NULL,
+  `stock_location` enum('Masoro','KCC','BK Arena','Ndera','Rugando') COLLATE utf8mb4_general_ci NOT NULL,
+  `serial_number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `stock_status` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `stock_image` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -250,11 +252,11 @@ CREATE TABLE `stock` (
 --
 
 CREATE TABLE `stock_managers` (
-  `manager_id` int(11) NOT NULL,
-  `manager_name` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL
+  `manager_id` int NOT NULL,
+  `manager_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `phone` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -264,15 +266,15 @@ CREATE TABLE `stock_managers` (
 --
 
 CREATE TABLE `tasks` (
-  `task_id` int(11) NOT NULL,
-  `event_id` int(11) NOT NULL,
-  `technician_id` int(11) DEFAULT NULL,
-  `task_name` varchar(100) NOT NULL,
-  `status` enum('Pending','In Progress','Completed') DEFAULT 'Pending',
+  `task_id` int NOT NULL,
+  `event_id` int NOT NULL,
+  `technician_id` int DEFAULT NULL,
+  `task_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` enum('Pending','In Progress','Completed') COLLATE utf8mb4_general_ci DEFAULT 'Pending',
   `due_date` date DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `description` text DEFAULT NULL
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `description` text COLLATE utf8mb4_general_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -290,11 +292,11 @@ INSERT INTO `tasks` (`task_id`, `event_id`, `technician_id`, `task_name`, `statu
 --
 
 CREATE TABLE `task_comments` (
-  `comment_id` int(11) NOT NULL,
-  `task_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `comment` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `comment_id` int NOT NULL,
+  `task_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `comment` text COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -304,17 +306,17 @@ CREATE TABLE `task_comments` (
 --
 
 CREATE TABLE `technicians` (
-  `technician_id` int(11) NOT NULL,
-  `full_name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `phone` varchar(15) DEFAULT NULL,
-  `id_type` enum('NID','Passport') NOT NULL,
-  `id_number` varchar(50) NOT NULL,
-  `department` enum('IT','Video','Sound','Lights','SIS','Electrical','Other','Stock','ManPower') NOT NULL,
-  `photo` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `is_active` tinyint(1) DEFAULT 1
+  `technician_id` int NOT NULL,
+  `full_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id_type` enum('NID','Passport') COLLATE utf8mb4_general_ci NOT NULL,
+  `id_number` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `department` enum('IT','Video','Sound','Lights','SIS','Electrical','Other','Stock','ManPower') COLLATE utf8mb4_general_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_active` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -324,15 +326,15 @@ CREATE TABLE `technicians` (
 --
 
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `full_name` varchar(100) NOT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
-  `photo` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `role` enum('User','Admin','Manager','Technician') NOT NULL
+  `user_id` int NOT NULL,
+  `full_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `password_hash` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `role` enum('User','Admin','Manager','Technician') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -397,7 +399,8 @@ ALTER TABLE `events`
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `serial_number` (`serial_number`);
+  ADD UNIQUE KEY `serial_number` (`serial_number`),
+  ADD UNIQUE KEY `item_code` (`item_code`);
 
 --
 -- Indexes for table `lease`
@@ -465,97 +468,97 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `academia`
 --
 ALTER TABLE `academia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `boards`
 --
 ALTER TABLE `boards`
-  MODIFY `board_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `board_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `brand_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `cards`
 --
 ALTER TABLE `cards`
-  MODIFY `card_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `card_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `category_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `colors`
 --
 ALTER TABLE `colors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `event_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `lease`
 --
 ALTER TABLE `lease`
-  MODIFY `lease_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `lease_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `lists`
 --
 ALTER TABLE `lists`
-  MODIFY `list_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `list_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `stock_managers`
 --
 ALTER TABLE `stock_managers`
-  MODIFY `manager_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `manager_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `task_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `task_comments`
 --
 ALTER TABLE `task_comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `technicians`
 --
 ALTER TABLE `technicians`
-  MODIFY `technician_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `technician_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
