@@ -24,7 +24,6 @@
             exit;
         }
 
-
         // CONNECT TO THE DB AND LOOP THE DATA
         try
         {
