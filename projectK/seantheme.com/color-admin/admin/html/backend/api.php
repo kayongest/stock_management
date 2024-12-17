@@ -63,7 +63,17 @@
         }
         
     }elseif($_SERVER['REQUEST_METHOD'] == 'GET'){
-        $_GET['action']();
+        try {
+            $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+            //$db= new PDO('mysql:host=localhost;dbname=moodle', 'admin', 'qyF4zLXvsz',
+            $db= new PDO('mysql:host=localhost;dbname=av_event_management', 'clement', 'clement123',
+            $pdo_options);
+            $_GET['action']($db);
+        } catch (Exception $e)
+        {
+            die('Erreur: '. $e->getMessage());
+        }
+        
     }
 ?>
 
@@ -124,14 +134,37 @@
     // END BRANDS
 
     // START ITEMS
-        function addItem($category_id, $brand_id, $serial_number, $db){
+        function addItem($category_id, $brand_id, $serial_number , $db) {
+            // Function to generate unique alphanumeric code
+            function generateUniqueCode($db) {
+                do {
+                    // Generate a code starting with # followed by 6 alphanumeric characters
+                    $code = '#' . substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 6);
+                    
+                    // Check if the code exists in the database
+                    $stmt = $db->prepare("SELECT COUNT(*) FROM items WHERE serial_number = :code");
+                    $stmt->execute([':code' => $code]);
+                    $count = $stmt->fetchColumn();
+                } while ($count > 0); // Repeat until a unique code is found
+                
+                return $code;
+            }
+        
+            // Generate a unique serial number
+            $item_code = generateUniqueCode($db);
+        
+            // Prepare SQL to insert data
             $statement = "
-                INSERT INTO items (category_id, brand_id, serial_number, stock_location, item_status) 
-                VALUES (:category_id, :brand_id, :serial_number, 'UNASSIGNED', 'NEW');";
+                INSERT INTO items (item_code, category_id, brand_id, serial_number, stock_location, item_status) 
+                VALUES (:item_code, :category_id, :brand_id, :serial_number, 'UNASSIGNED', 'NEW');
+            ";
             $data = array(
                 ':category_id' => $category_id,
                 ':brand_id' => $brand_id,
-                ':serial_number' => $serial_number);
+                ':serial_number' => $serial_number,
+                ':item_code' => $item_code
+            );
+        
             try {
                 $statement = $db->prepare($statement);
                 $statement->execute($data);
@@ -145,7 +178,7 @@
         }
 
         function getItems($db){
-            $statement = "SELECT id, B.name AS brand_name, C.name AS category_name, C.tag AS category_tag, C.description AS item_description, serial_number, stock_location, item_status, date_added FROM items I 
+            $statement = "SELECT id, I.item_code, B.name AS brand_name, C.name AS category_name, C.tag AS category_tag, C.description AS item_description, serial_number, stock_location, item_status, date_added FROM items I 
                                         JOIN brands B ON B.brand_id = I.brand_id
                                         JOIN categories C ON C.category_id = I.category_id 
                                         ORDER BY I.id DESC";
@@ -160,32 +193,44 @@
     // END ITEMS
 
     // START QR CODES
-    function generateQrs() {
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-    
-        try {
-            require_once __DIR__ . '/helper/generateqrcodes.php';
-    
-            // Example usage:
-            $items = ["#123453", "#2B334", "#223L4", "#2H3L4", "#G23L4", "#1M3L4", "#1P6L4", "#971B8", "#P23K1", "#32O23P", "#723D4", "#777M1"];
-            generateQRCodePDFWithItems($items);
-    
-            // Exit after the PDF is output
-            exit;
-    
-        } catch (\Throwable $th) {
-            // Output JSON response only on error
-            header('Content-Type: application/json');
-            echo json_encode([
-                "status" => "error",
-                "message" => $th->getMessage(),
-                "file" => $th->getFile(),
-                "line" => $th->getLine(),
-            ]);
-            exit;
+        function generateQrs($db) {
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+        
+            // Get items from the database
+            $response = getItems($db);
+        
+            if (!$response['items'] || count($response['items']) === 0) {
+                throw new Exception('No items found');
+            }
+        
+            try {
+                require_once __DIR__ . '/helper/generateqrcodes.php';
+        
+                // Extract only the item codes from the response
+                $item_code = [];
+                foreach ($response['items'] as $item) {
+                    $item_code[] = $item['item_code'];
+                }
+        
+                // Example usage: Generate QR Code PDF with item codes
+                generateQRCodePDFWithItems($item_code);
+        
+                // Exit after the PDF is output
+                exit;
+        
+            } catch (\Throwable $th) {
+                // Output JSON response only on error
+                header('Content-Type: application/json');
+                echo json_encode([
+                    "status" => "error",
+                    "message" => $th->getMessage(),
+                    "file" => $th->getFile(),
+                    "line" => $th->getLine(),
+                ]);
+                exit;
+            }
         }
-    }
     // END QR CODES
 ?>
