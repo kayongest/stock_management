@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 17, 2024 at 12:59 PM
+-- Generation Time: Dec 23, 2024 at 06:18 PM
 -- Server version: 8.0.35
--- PHP Version: 7.4.33
+-- PHP Version: 8.1.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,16 +64,12 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`brand_id`, `name`) VALUES
-(1, 'HP'),
-(2, 'LENOVO'),
-(3, 'BENQ'),
-(4, 'SAMSUNG'),
-(5, 'LG'),
-(6, 'TESTING'),
-(7, 'WORKED'),
-(8, 'HOW ABOUT NOW'),
-(9, 'THEN THIS'),
-(10, 'Apple');
+(1, 'Apple'),
+(2, 'HP'),
+(3, 'DEL'),
+(4, 'LENOVO'),
+(5, 'SAMSUNG'),
+(6, 'Google');
 
 -- --------------------------------------------------------
 
@@ -111,7 +107,11 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`category_id`, `name`, `Description`, `tag`) VALUES
 (1, 'Laptop', 'HDD: 500GB, RAM: 8GB, Screen: 13Inch', 'OTHER'),
 (2, 'PROJECTOR', '1800HD', 'VIDEO'),
-(3, 'KEYBOARD', 'APPLE MAGIC KEYS 2024', 'OTHER');
+(3, 'KEYBOARD', 'APPLE MAGIC KEYS 2024', 'OTHER'),
+(4, 'LAPTOP', 'SSD: 500GB, RAM: M2, Screen: 13Inch', 'OTHER'),
+(5, 'MOUSE', 'Apple Magic Mouse', 'OTHER'),
+(6, 'Phone', 'Iphone 13', 'OTHER'),
+(7, 'Test Product', 'Testing the product with the name', 'VIDEO');
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,6 @@ CREATE TABLE `items` (
   `category_id` int NOT NULL,
   `brand_id` int NOT NULL,
   `serial_number` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `stock_location` enum('UNASSIGNED','Masoro','KCC','BK Arena','Ndera','Rugando') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `item_status` enum('New','Working','Faulty','Needs Repair','Repaired','Leased') COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` date DEFAULT NULL,
@@ -177,8 +176,17 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `item_code`, `category_id`, `brand_id`, `serial_number`, `stock_location`, `item_status`, `date_added`, `update_date`, `item_type`, `qr_code_url`) VALUES
-(1, '#0UHVOQ', 3, 10, '#123wew', 'UNASSIGNED', 'New', '2024-12-17 12:43:32', NULL, 'Existing', NULL);
+INSERT INTO `items` (`id`, `item_code`, `category_id`, `brand_id`, `serial_number`, `item_status`, `date_added`, `update_date`, `item_type`, `qr_code_url`) VALUES
+(1, '#0UHVOQ', 3, 10, '#123wew', 'New', '2024-12-17 12:43:32', NULL, 'Existing', NULL),
+(2, '#X4BRYZ', 4, 1, 'CW64GP6N4H', 'New', '2024-12-17 13:44:55', NULL, 'Existing', NULL),
+(7, '#BAQ6OP', 6, 4, '776659', 'New', '2024-12-21 07:14:47', NULL, 'Existing', NULL),
+(8, '#HMKQVN', 5, 3, 'gergf', 'New', '2024-12-21 07:29:18', NULL, 'Existing', NULL),
+(9, '#PMCTZ8', 3, 5, '#76876576578', 'New', '2024-12-21 08:07:08', NULL, 'Existing', NULL),
+(10, '#F1Y9DE', 7, 6, '#65656', 'New', '2024-12-21 08:11:13', NULL, 'Existing', NULL),
+(11, '#Y15GQ8', 4, 4, '#898923', 'New', '2024-12-23 16:48:10', NULL, 'Existing', NULL),
+(12, '#UG3X4R', 6, 5, 'test', 'New', '2024-12-23 16:55:41', NULL, 'Existing', NULL),
+(13, '#SP72YG', 5, 4, '#4455ksdj', 'New', '2024-12-23 16:57:16', NULL, 'Existing', NULL),
+(14, '#QPE509', 2, 2, '#vdkn', 'New', '2024-12-23 16:59:08', NULL, 'Existing', NULL);
 
 -- --------------------------------------------------------
 
@@ -230,20 +238,37 @@ CREATE TABLE `lists` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `models`
+--
+
+CREATE TABLE `models` (
+  `model_id` int NOT NULL,
+  `model_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `stock`
 --
 
 CREATE TABLE `stock` (
   `id` int NOT NULL,
-  `stock_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `stock_category` enum('VIDEO','IT','SOUND','SIS','LIGHTS','OTHER') COLLATE utf8mb4_general_ci NOT NULL,
-  `stock_location` enum('Masoro','KCC','BK Arena','Ndera','Rugando') COLLATE utf8mb4_general_ci NOT NULL,
-  `serial_number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `stock_status` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `stock_image` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `stock_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `stock`
+--
+
+INSERT INTO `stock` (`id`, `stock_name`) VALUES
+(1, 'UNASSIGNED'),
+(2, 'KCC'),
+(3, 'UNASSIGNED'),
+(4, 'MASORO'),
+(5, 'BK Arena'),
+(6, 'NDERA'),
+(8, 'Rugando');
 
 -- --------------------------------------------------------
 
@@ -318,6 +343,34 @@ CREATE TABLE `technicians` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `is_active` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `transactionId` int NOT NULL,
+  `itemId` int NOT NULL,
+  `locationId` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`transactionId`, `itemId`, `locationId`) VALUES
+(1, 1, 3),
+(2, 2, 2),
+(3, 7, 4),
+(4, 8, 6),
+(5, 9, 5),
+(6, 10, 1),
+(7, 11, 1),
+(8, 12, 1),
+(9, 13, 1),
+(10, 14, 1);
 
 -- --------------------------------------------------------
 
@@ -417,11 +470,16 @@ ALTER TABLE `lists`
   ADD KEY `board_id` (`board_id`);
 
 --
+-- Indexes for table `models`
+--
+ALTER TABLE `models`
+  ADD PRIMARY KEY (`model_id`);
+
+--
 -- Indexes for table `stock`
 --
 ALTER TABLE `stock`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `serial_number` (`serial_number`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `stock_managers`
@@ -454,6 +512,12 @@ ALTER TABLE `technicians`
   ADD UNIQUE KEY `id_number` (`id_number`);
 
 --
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`transactionId`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -480,7 +544,7 @@ ALTER TABLE `boards`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `brand_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `brand_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `cards`
@@ -492,7 +556,7 @@ ALTER TABLE `cards`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `category_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `colors`
@@ -510,7 +574,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `lease`
@@ -525,10 +589,16 @@ ALTER TABLE `lists`
   MODIFY `list_id` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `models`
+--
+ALTER TABLE `models`
+  MODIFY `model_id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `stock_managers`
@@ -553,6 +623,12 @@ ALTER TABLE `task_comments`
 --
 ALTER TABLE `technicians`
   MODIFY `technician_id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `transactionId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
