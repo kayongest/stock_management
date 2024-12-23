@@ -292,6 +292,13 @@
     </div>
 
     <div id="content" class="app-content">
+    <div class="col-xl-12">
+          <div class="container mt-4">
+              <div class="row" id="cards-container">
+                  <!-- Cards will be dynamically inserted here -->
+              </div>
+          </div>
+        </div>
       <div class="row">
         <div class="col-xl-12">
           <div class="panel">
@@ -969,24 +976,14 @@
                             form.reset();
                             $('#itemModal').modal('hide');
 
-                            // Refresh the item list after the timer
-                            fetchItems();
+                            // Refresh the Categories list after the timer
+                            fetchCategories()
                         }
                     });
 
                     const tableBody = $("#categoryTableBody");
                     const categories = data.data;
 
-                    categories.forEach(category => {
-                        const row = `
-                            <tr>
-                                <td>${category.name}</td>
-                                <td>${category.Description || "N/A"}</td>
-                                <td>${category.tag || "N/A"}</td>
-                            </tr>
-                        `;
-                        tableBody.append(row);
-                    });
                 } else {
                     Swal.fire('Error!', data.message || 'Failed to add category.', 'error');
                 }
@@ -1328,6 +1325,8 @@
             try {
               if (response.status === "success") {
                 let items = response.items;
+
+                sortStocks(items)
                 // Define category and status colors
                 const categoryBadgeColors = {
                   VIDEO: "#10538e",
@@ -1469,6 +1468,33 @@
       }
     // END ITEMS
   
+    // STOCKS START
+      function sortStocks(data){
+       
+        // Count items grouped by `stock_location`
+        const stockCount = {};
+        data.forEach((item) => {
+            const location = item.stock_location;
+            stockCount[location] = (stockCount[location] || 0) + 1;
+        });
+
+        // Generate cards dynamically
+        const $container = $("#cards-container");
+        Object.entries(stockCount).forEach(([location, count]) => {
+            const cardHtml = `
+                <div class="col-md-2 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">${location}</h5>
+                            <p class="card-text">Number of Items: <strong>${count}</strong></p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $container.append(cardHtml);
+        });
+      }
+    // STOCKS END
   </script>
 
   <!-- Vendor and Plugin Scripts -->
