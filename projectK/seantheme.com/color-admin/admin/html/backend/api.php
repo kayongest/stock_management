@@ -1,4 +1,5 @@
 <?php
+
     // Display all PHP errors (see changelog)
     error_reporting(E_ALL);
     // Turn on the display of errors
@@ -22,7 +23,7 @@
         if ($data === null && json_last_error() !== JSON_ERROR_NONE) {
             echo "Invalid JSON data";
             exit;
-        }
+        } // test codes
 
         // CONNECT TO THE DB AND LOOP THE DATA
         try
@@ -154,8 +155,8 @@
         
             // Prepare SQL to insert data
             $statement = "
-                INSERT INTO items (item_code, category_id, brand_id, serial_number, stock_location, item_status) 
-                VALUES (:item_code, :category_id, :brand_id, :serial_number, 'UNASSIGNED', 'NEW');
+                INSERT INTO items (item_code, category_id, brand_id, serial_number, item_status) 
+                VALUES (:item_code, :category_id, :brand_id, :serial_number, 'NEW');
             ";
             $data = array(
                 ':category_id' => $category_id,
@@ -167,6 +168,7 @@
             try {
                 $statement = $db->prepare($statement);
                 $statement->execute($data);
+                addToTransactions($db->lastInsertId(), '1', $db);
                 return [
                     "status" => "success",
                     "data" => getBrands($db)
@@ -177,10 +179,32 @@
         }
 
         function getItems($db){
-            $statement = "SELECT id, I.item_code, B.name AS brand_name, C.name AS category_name, C.tag AS category_tag, C.description AS item_description, serial_number, stock_location, item_status, date_added FROM items I 
-                                        JOIN brands B ON B.brand_id = I.brand_id
-                                        JOIN categories C ON C.category_id = I.category_id 
-                                        ORDER BY I.id DESC";
+            $statement = "SELECT 
+                            I.id, 
+                            I.item_code, 
+                            B.name AS brand_name, 
+                            C.name AS category_name, 
+                            C.tag AS category_tag, 
+                            C.description AS item_description, 
+                            I.serial_number,
+                            I.item_status, 
+                            I.date_added,
+                            IFNULL(
+                                (SELECT ST.stock_name 
+                                FROM transactions T 
+                                JOIN stock ST ON T.locationId = ST.id 
+                                WHERE T.itemId = I.id ORDER BY T.transactionId DESC
+                                LIMIT 1), 
+                                'Unknown'
+                            ) AS stock_location
+                        FROM 
+                            items I
+                        JOIN 
+                            brands B ON B.brand_id = I.brand_id
+                        JOIN 
+                            categories C ON C.category_id = I.category_id
+                        ORDER BY 
+                            I.id DESC;";
 
             $result = $db->query($statement);
 
@@ -232,4 +256,22 @@
             }
         }
     // END QR CODES
+
+    // TRANSACTIONS START
+        function addToTransactions($itemId, $locationId, $db){
+            $statement = "INSERT INTO transactions (itemId, locationId) VALUES (:itemId, :locationId);";
+        
+            $data = [':itemId' => $itemId, ':locationId' => $locationId];
+            try {
+                $statement = $db->prepare($statement);
+                $statement->execute($data);
+                return [
+                    "status" => "success",
+                    "data" => $db->lastInsertId()
+                ];
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
+    // TRANSACTIONS END
 ?>
