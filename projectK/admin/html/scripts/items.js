@@ -360,7 +360,7 @@ $(document).ready(function() {
         }
     }
 
-    function fetchCategories() {
+    function fetchCategoriesa() {
     console.log('Fetching categories');
     $.ajax({
         url: './backend/api.php', // Adjust the path to your API file
@@ -369,7 +369,10 @@ $(document).ready(function() {
         contentType: 'application/json', // Inform the server about the data type
         data: JSON.stringify({ action: 'getCategories' }), // The action to invoke getCategories
         success: function(response) {
+
+            console.log({"thiscategories":response})
         if (response.length > 0) {
+
             const tableBody = $("#categoryTableBody");
             tableBody.empty(); // Clear existing table rows
 
@@ -381,10 +384,12 @@ $(document).ready(function() {
                     <td>${category.name}</td>
                     <td>${category.Description || "N/A"}</td>
                     <td>${category.tag || "N/A"}</td>
+                    <td>${category.category_model || "N/A"}</td>
                 </tr>
             `;
             tableBody.append(row);
             });
+
 
             // Initialize or refresh DataTable
             if (!$.fn.DataTable.isDataTable("#categoryTable")) {
@@ -424,15 +429,15 @@ $(document).ready(function() {
     }
 
     function updateCategoryList(categoriesData) {
-    const categoriesSelect = document.getElementById("categories");
-    categoriesSelect.innerHTML = '<option value="">Choose a category</option>'; // Reset options
+        const categoriesSelect = document.getElementById("categories");
+        categoriesSelect.innerHTML = '<option value="">Choose a category</option>'; // Reset options
 
-    categoriesData.forEach(category => {
-        const option = document.createElement("option");
-        option.value = category.category_id;
-        option.textContent = category.name+' | '+category.Description;
-        categoriesSelect.appendChild(option);
-    });
+        categoriesData.forEach(category => {
+            const option = document.createElement("option");
+            option.value = category.category_id;
+            option.textContent = category.name+' | '+category.Description;
+            categoriesSelect.appendChild(option);
+        });
     }
 // END CATEGORIES
 
@@ -659,6 +664,7 @@ $(document).ready(function() {
                             <td>${category.name}</td>
                             <td>${category.Description || "N/A"}</td>
                             <td>${category.tag || "N/A"}</td>
+                            <td>${category.category_model || "N/A"}</td>
                         </tr>
                     `;
                     tableBody.append(row);

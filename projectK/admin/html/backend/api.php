@@ -36,7 +36,7 @@
             $results = [];
             // Called the Routes
             if($data['action']=='addCategory'){
-                $results = addCategory($data['category_name'],$data['category_description'],$data['category_tag'], $db);
+                $results = addCategory($data['category_name'],$data['category_description'],$data['category_tag'],$data['category_model'], $db);
             }elseif($data['action']=='getCategories'){
                 $results = getCategories($db);
             }elseif($data['action']=='addBrand'){
@@ -80,14 +80,15 @@
 <?php
 
     // START CATEGORIES
-        function addCategory($category_name, $category_description, $category_tag, $db){
+        function addCategory($category_name, $category_description, $category_tag, $category_model, $db){
             $statement = "
-                INSERT INTO categories (name, Description, tag) 
-                VALUES (:category_name, :category_description, :category_tag);";
+                INSERT INTO categories (name, Description, tag, category_model) 
+                VALUES (:category_name, :category_description, :category_tag, :category_model);";
             $data = array(
                 ':category_name' => $category_name,
                 ':category_description' => $category_description,
-                ':category_tag' => $category_tag
+                ':category_tag' => $category_tag,
+                ':category_model' => $category_model,
             );
             try {
                 $statement = $db->prepare($statement);

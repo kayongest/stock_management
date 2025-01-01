@@ -386,7 +386,11 @@
                     <textarea class="form-control" id="category_description" name="category_description"></textarea>
                   </div>
                   <div class="mb-3">
-                    <label for="category_tag" class="form-label">Category Modle</label>
+                    <label for="category_model" class="form-label">Category Model</label>
+                    <input class="form-control" id="category_model" name="category_model" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="category_tag" class="form-label">Category Tag</label>
                     <select class="form-select" id="category_tag" name="category_tag" required>
                       <option value="">-- select --</option>
                       <option value="VIDEO">Canon</option>
@@ -404,12 +408,13 @@
                 <div class="col-md-7">
                   <h6>Categories</h6>
                   <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
-                    <table class="table table-striped table-bordered table-sm">
+                    <table class="table table-striped table-bordered table-sm" id='categoryTable'>
                         <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Tag</th>
+                                <th>Model</th>
                             </tr>
                         </thead>
                         <tbody id="categoryTableBody">
