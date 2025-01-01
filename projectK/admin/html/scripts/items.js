@@ -360,7 +360,7 @@ $(document).ready(function() {
         }
     }
 
-    function fetchCategoriesa() {
+    function fetchCategories() {
     console.log('Fetching categories');
     $.ajax({
         url: './backend/api.php', // Adjust the path to your API file

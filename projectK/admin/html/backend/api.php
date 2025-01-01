@@ -1,5 +1,4 @@
 <?php
-
     // Display all PHP errors (see changelog)
     error_reporting(E_ALL);
     // Turn on the display of errors
@@ -9,7 +8,6 @@
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
 ?>
-
 
 <?php
     // Check if the request method is POST OR GET
@@ -78,7 +76,6 @@
 ?>
 
 <?php
-
     // START CATEGORIES
         function addCategory($category_name, $category_description, $category_tag, $category_model, $db){
             $statement = "
